@@ -31,6 +31,9 @@ class StickerCard extends Component {
                     </Button>
                 </CardActions>
             </Card>
+            // Mobile Stepper for progress bar
+            // Vertical Stepper for In depth view of challenges
+            // Card Behaviour - https://material.io/design/components/cards.html#behavior
         );
     }
 }

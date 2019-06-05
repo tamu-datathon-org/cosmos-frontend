@@ -27,6 +27,7 @@ function App() {
         </Grid>
       </header>
     </div>
+    //Use drawer for expandable side bar
   );
 }
 
