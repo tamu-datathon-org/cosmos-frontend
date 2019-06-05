@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardContent, CardActions, Typography, Button, CardActionArea, CardMedia } from '@material-ui/core';
+import { Card, CardContent, CardActions, Typography, Button, CardActionArea } from '@material-ui/core';
 
 class StickerCard extends Component {
     render() {
@@ -10,7 +10,7 @@ class StickerCard extends Component {
                         component="img"
                         alt="Galaxy"
                         height="140"
-                        image="../Images/Cards/galaxy.jpg"
+                        image="../../Images/Cards/galaxy.jpg"
                         title="Galaxy"
                     /> */}
                     <CardContent>
