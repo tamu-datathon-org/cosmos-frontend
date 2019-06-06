@@ -30,7 +30,7 @@ class NavBar extends Component {
                             style={{ marginRight: '20px' }}
                         />
                         <Typography variant="title">
-                            TAMU Datathon Cosmos
+                            John Doe
                         </Typography>
                         <Tabs
                             style={{ position: 'absolute', right: '0px' }}
