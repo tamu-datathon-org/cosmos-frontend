@@ -1,9 +1,9 @@
 [
     {
         "title": "Lab 1: Loading and Understanding Your Data",
-        "image": "https://scubasanmateo.com/images/saturn-clipart-planet-11.png",
+        "image": "https://drive.google.com/uc?export=download&id=10_FqwgamTQcvn6ACSHSA3uPaSyzPvsRv",
         "link": "https://research.google.com/seedbank/seed/lab__loading_and_understanding_your_data",
-        "linkText": "See Lesson on Colab",
+        "linkText": "See on Colab",
         "description": "Use Pandas to load and explore the raw data and put together all the pieces needed to train a linear regression model in TensorFlow.",
         "challenges": [
             {
@@ -30,9 +30,105 @@
     },
     {
         "title": "Lab 2: Training Your First TF Linear Regression Model",
-        "image": "https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/50/15/1d/50151d3b-53be-865e-f465-243f55f64e25/source/512x512bb.jpg",
+        "image": "https://drive.google.com/uc?export=download&id=1wjBmFMiWlYjkDvRIrv0xxneBaERKjYiQ",
         "link": "https://research.google.com/seedbank/seed/lab__training_your_first_tf_linear_regression_model",
-        "linkText": "See Lesson on Colab",
+        "linkText": "See on Colab",
+        "description": "Learn how to set up the features in TensorFlow to train a model using an automobile data set.",
+        "challenges": [
+            {
+                "title": "Computing the Loss",
+                "link": "",
+                "points": 2
+            },
+            {
+                "title": "Modify the hyperparmaters to get a better model",
+                "link": "",
+                "points": 3
+            },
+            {
+                "title": "Try a Different Input Feature.",
+                "link": "",
+                "points": 2
+            }
+        ]
+    },
+    {
+        "title": "Lab 2: Training Your First TF Linear Regression Model",
+        "image": "https://drive.google.com/uc?export=download&id=1wjBmFMiWlYjkDvRIrv0xxneBaERKjYiQ",
+        "link": "https://research.google.com/seedbank/seed/lab__training_your_first_tf_linear_regression_model",
+        "linkText": "See on Colab",
+        "description": "Learn how to set up the features in TensorFlow to train a model using an automobile data set.",
+        "challenges": [
+            {
+                "title": "Computing the Loss",
+                "link": "",
+                "points": 2
+            },
+            {
+                "title": "Modify the hyperparmaters to get a better model",
+                "link": "",
+                "points": 3
+            },
+            {
+                "title": "Try a Different Input Feature.",
+                "link": "",
+                "points": 2
+            }
+        ]
+    },
+    {
+        "title": "Lab 2: Training Your First TF Linear Regression Model",
+        "image": "https://drive.google.com/uc?export=download&id=1wjBmFMiWlYjkDvRIrv0xxneBaERKjYiQ",
+        "link": "https://research.google.com/seedbank/seed/lab__training_your_first_tf_linear_regression_model",
+        "linkText": "See on Colab",
+        "description": "Learn how to set up the features in TensorFlow to train a model using an automobile data set.",
+        "challenges": [
+            {
+                "title": "Computing the Loss",
+                "link": "",
+                "points": 2
+            },
+            {
+                "title": "Modify the hyperparmaters to get a better model",
+                "link": "",
+                "points": 3
+            },
+            {
+                "title": "Try a Different Input Feature.",
+                "link": "",
+                "points": 2
+            }
+        ]
+    },
+    {
+        "title": "Lab 2: Training Your First TF Linear Regression Model",
+        "image": "https://drive.google.com/uc?export=download&id=1wjBmFMiWlYjkDvRIrv0xxneBaERKjYiQ",
+        "link": "https://research.google.com/seedbank/seed/lab__training_your_first_tf_linear_regression_model",
+        "linkText": "See on Colab",
+        "description": "Learn how to set up the features in TensorFlow to train a model using an automobile data set.",
+        "challenges": [
+            {
+                "title": "Computing the Loss",
+                "link": "",
+                "points": 2
+            },
+            {
+                "title": "Modify the hyperparmaters to get a better model",
+                "link": "",
+                "points": 3
+            },
+            {
+                "title": "Try a Different Input Feature.",
+                "link": "",
+                "points": 2
+            }
+        ]
+    },
+    {
+        "title": "Lab 2: Training Your First TF Linear Regression Model",
+        "image": "https://drive.google.com/uc?export=download&id=1wjBmFMiWlYjkDvRIrv0xxneBaERKjYiQ",
+        "link": "https://research.google.com/seedbank/seed/lab__training_your_first_tf_linear_regression_model",
+        "linkText": "See on Colab",
         "description": "Learn how to set up the features in TensorFlow to train a model using an automobile data set.",
         "challenges": [
             {

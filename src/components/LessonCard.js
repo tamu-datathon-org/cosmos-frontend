@@ -1,29 +1,47 @@
-import React from 'react';
+import Fab from '@material-ui/core/Fab';
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import Divider from '@material-ui/core/Divider';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grow from '@material-ui/core/Grow';
+import { withStyles } from '@material-ui/core/styles';
+import React from 'react';
 
-export default ({ lesson }) => (
+const styles = () => ({
+    card: {
+        textAlign: 'center',
+    },
+    image: {
+        height: 150,
+        objectFit: 'contain',
+        filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.2))',
+        paddingTop: 20,
+    },
+});
+
+const LessonCard = ({ lesson, classes }) => (
     <div>
-        <Card style={{ height: '450px' }}>
+        <Card className={classes.card}>
+            {/* Sticker effect - http://one-stop-creative-cafe.blogspot.com/2008/10/creating-sticker-effect-in-photoshop.html */}
             <CardMedia
-                style={{ height: 0, paddingTop: '56.25%' }}
-                image={`${lesson.image}`}
+                className={classes.image}
+                component="img"
+                image={lesson.image}
                 title={lesson.title}
             />
-            <CardContent style={{ height: '120px' }}>
-                <Typography gutterBottom variant="headline" component="h2">
+            <CardContent>
+                <Typography gutterBottom variant="h5">
                     {lesson.title}
                 </Typography>
-                <Typography component="p">{lesson.description}</Typography>
+                <Typography color="textSecondary" variant="body2">{lesson.description}</Typography>
             </CardContent>
+            <Divider variant="middle" />
             <CardActions>
                 {lesson.link && (
                     <Button
-                        size="small"
                         color="primary"
                         href={lesson.link}
                         target="_blank"
@@ -31,7 +49,12 @@ export default ({ lesson }) => (
                         {lesson.linkText}
                     </Button>
                 )}
+                {/* <Fab color="primary">
+                    <MoreVert />
+                </Fab> */}
             </CardActions>
         </Card>
     </div>
 );
+
+export default withStyles(styles)(LessonCard);

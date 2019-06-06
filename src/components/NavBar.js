@@ -23,13 +23,13 @@ class NavBar extends Component {
     render = () => {
         return (
             <div>
-                <AppBar position="static" style={{ marginBottom: '20px' }}>
+                <AppBar className="nav-bar" position="static">
                     <Toolbar>
                         <Avatar
                             src={AVATAR_SRC}
                             style={{ marginRight: '20px' }}
                         />
-                        <Typography variant="title" color="inherit">
+                        <Typography variant="title">
                             TAMU Datathon Cosmos
                         </Typography>
                         <Tabs
