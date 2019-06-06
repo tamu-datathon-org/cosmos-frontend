@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import LessonList from './LessonList';
-import Home from './home/Home';
+import LessonList from './lessons/LessonList';
+import HomePage from './home/HomePage';
 
 const Routes = () => (
     <div>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={HomePage} />
         <Route exact path="/lessons" component={LessonList} />
     </div>
 );

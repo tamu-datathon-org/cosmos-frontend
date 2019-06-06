@@ -1,5 +1,5 @@
-import React from 'react'
-import Grid from '@material-ui/core/Grid'
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
 import lessons from './lessons.json';
 import LessonCard from './LessonCard';
 import Grow from '@material-ui/core/Grow';
