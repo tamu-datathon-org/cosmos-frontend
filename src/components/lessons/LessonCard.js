@@ -18,6 +18,13 @@ const styles = () => ({
         filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.2))',
         paddingTop: 20,
     },
+    imageGrayed: {
+        height: 150,
+        objectFit: 'contain',
+        paddingTop: 20,
+        opacity: 0.2,
+        filter: "grayscale(100%)",
+    }
 });
 
 const LessonCard = ({ lesson, classes }) => (
@@ -25,7 +32,7 @@ const LessonCard = ({ lesson, classes }) => (
         <Card className={classes.card}>
             {/* Sticker effect - http://one-stop-creative-cafe.blogspot.com/2008/10/creating-sticker-effect-in-photoshop.html */}
             <CardMedia
-                className={classes.image}
+                className={lesson.completed ? classes.image : classes.imageGrayed }
                 component="img"
                 image={lesson.image}
                 title={lesson.title}
