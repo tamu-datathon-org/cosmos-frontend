@@ -1,5 +1,4 @@
 import FlipToBackIcon from '@material-ui/icons/FlipToBack';
-import Fab from '@material-ui/core/Fab';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Divider from '@material-ui/core/Divider';
@@ -10,56 +9,71 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import React from 'react';
 
+// Card alignment ex - https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/page-layout-examples/album
 const styles = () => ({
     card: {
-        textAlign: 'center',
+        height: 450,
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    backgroundImage: {
+        height: 150,
+        objectFit: 'cover',
+        padding: 20,
     },
     image: {
-        height: 150,
+        height: '100%',
         objectFit: 'contain',
         filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.2))',
-        paddingTop: 20,
     },
     imageGrayed: {
-        height: 150,
+        height: '100%',
         objectFit: 'contain',
-        paddingTop: 20,
-        opacity: 0.2,
+        opacity: 0.3,
         filter: 'grayscale(100%)',
+    },
+    cardContent: {
+        flexGrow: 1,
+    },
+    cardActions: {
+        display: "flex",
+        justifyContent: "space-between",
     },
 });
 
 const FrontLessonCard = ({ lesson, handleClick, classes }) => (
-    <div>
-        <Card className={classes.card}>
-            {/* Sticker effect - http://one-stop-creative-cafe.blogspot.com/2008/10/creating-sticker-effect-in-photoshop.html */}
+    <Card className={classes.card}>
+        <CardMedia
+            className={classes.backgroundImage}
+            image="https://drive.google.com/uc?export=download&id=1GERwGehJmlhJkS-cEsV6tn715QuoVtRF"
+        >
             <CardMedia
                 className={lesson.completed ? classes.image : classes.imageGrayed}
                 component="img"
                 image={lesson.image}
                 title={lesson.title}
             />
-            <CardContent>
-                <Typography gutterBottom variant="h5">
-                    {lesson.title}
-                </Typography>
-                <Typography color="textSecondary" variant="body2">
-                    {lesson.description}
-                </Typography>
-            </CardContent>
-            <Divider variant="middle" />
-            <CardActions>
-                <Fab color="primary" aria-label="Add" onClick={handleClick} top left>
-                    <FlipToBackIcon />
-                </Fab>
-                {lesson.link && (
-                    <Button color="primary" href={lesson.link} target="_blank">
-                        {lesson.linkText}
-                    </Button>
-                )}
-            </CardActions>
-        </Card>
-    </div>
+        </CardMedia>
+        <CardContent className={classes.cardContent}>
+            <Typography gutterBottom variant="h5" component="h2">
+                {lesson.title}
+            </Typography>
+            <Typography color="textSecondary">
+                {lesson.description}
+            </Typography>
+        </CardContent>
+        <Divider variant="middle" />
+        <CardActions className={classes.cardActions}>
+            {lesson.link && (
+                <Button size="small" color="secondary" href={lesson.link} target="_blank">
+                    {lesson.linkText}
+                </Button>
+            )}
+            <Button size="small" color="secondary" onClick={handleClick}>
+                <FlipToBackIcon />
+            </Button>
+        </CardActions>
+    </Card>
 );
 
 export default withStyles(styles)(FrontLessonCard);
