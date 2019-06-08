@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "title": "Lab 1: Loading and Understanding Your Data",
+        "title": "Data Management",
         "image": "https://drive.google.com/uc?export=download&id=10_FqwgamTQcvn6ACSHSA3uPaSyzPvsRv",
         "link": "https://research.google.com/seedbank/seed/lab__loading_and_understanding_your_data",
         "completed": true,
@@ -32,7 +32,7 @@
     },
     {
         "id": 2,
-        "title": "Lab 2: Training Your First TF Linear Regression Model",
+        "title": "Training Your First Model",
         "image": "https://drive.google.com/uc?export=download&id=1wjBmFMiWlYjkDvRIrv0xxneBaERKjYiQ",
         "link": "https://research.google.com/seedbank/seed/lab__training_your_first_tf_linear_regression_model",
         "completed": true,
@@ -58,7 +58,7 @@
     },
     {
         "id": 3,
-        "title": "Lab 2: Training Your First TF Linear Regression Model",
+        "title": "Fun with Big Data",
         "image": "https://drive.google.com/uc?export=download&id=1wjBmFMiWlYjkDvRIrv0xxneBaERKjYiQ",
         "link": "https://research.google.com/seedbank/seed/lab__training_your_first_tf_linear_regression_model",
         "completed": false,

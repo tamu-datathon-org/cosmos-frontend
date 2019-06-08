@@ -1,5 +1,7 @@
 import FlipToBackIcon from '@material-ui/icons/FlipToBack';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+
 import Card from '@material-ui/core/Card';
 import Divider from '@material-ui/core/Divider';
 import CardActions from '@material-ui/core/CardActions';
@@ -55,7 +57,7 @@ const FrontLessonCard = ({ lesson, handleClick, classes }) => (
             />
         </CardMedia>
         <CardContent className={classes.cardContent}>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h5">
                 {lesson.title}
             </Typography>
             <Typography color="textSecondary">
@@ -65,13 +67,13 @@ const FrontLessonCard = ({ lesson, handleClick, classes }) => (
         <Divider variant="middle" />
         <CardActions className={classes.cardActions}>
             {lesson.link && (
-                <Button size="small" color="secondary" href={lesson.link} target="_blank">
+                <Button color="secondary" href={lesson.link} target="_blank">
                     {lesson.linkText}
                 </Button>
             )}
-            <Button size="small" color="secondary" onClick={handleClick}>
+            <IconButton color="secondary" onClick={handleClick} aria-label="Show more">
                 <FlipToBackIcon />
-            </Button>
+            </IconButton>
         </CardActions>
     </Card>
 );
