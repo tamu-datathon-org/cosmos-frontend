@@ -6,10 +6,10 @@ import Grow from '@material-ui/core/Grow';
 
 export default () => (
     <div>
-        <Grid container spacing={2} style={{ padding: 24 }}>
-            {lessons.map((lesson, i) => (
-                <Grow in="true" timeout={1000 * (i + 1)}>
-                    <Grid item xs={12} sm={6} lg={4} xl={3}>
+        <Grid container spacing={4}>
+            {lessons.map((lesson) => (
+                <Grow in={true} key={lesson.id.toString()}>
+                    <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
                         <LessonCard lesson={lesson} />
                     </Grid>
                 </Grow>

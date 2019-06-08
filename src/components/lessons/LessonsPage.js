@@ -3,14 +3,17 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 import React from 'react';
 import LessonList from './LessonList';
+import { Container } from '@material-ui/core';
 
 export default () => (
     <div>
-        <Grid container spacing={2} style={{ padding: 24 }}>
+        <Grid container spacing={2} style={{ padding: 24, margin: 0, width: '100%' }}>
             <Grid item xs={12}>
-                <LinearProgress value={70} variant="buffer" thickness={10} dashed />
+                <LinearProgress variant="determinate" color="secondary" value={70} />
             </Grid>
         </Grid>
-        <LessonList />
+        <Container>
+            <LessonList />
+        </Container>
     </div>
 );

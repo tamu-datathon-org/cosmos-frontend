@@ -1,0 +1,54 @@
+import FlipToFrontIcon from '@material-ui/icons/FlipToFront';
+import Button from '@material-ui/core/Button';
+import CardActions from '@material-ui/core/CardActions';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import CardContent from '@material-ui/core/CardContent';
+import Divider from '@material-ui/core/Divider'
+import React from 'react';
+
+const styles = () => ({
+    card: {
+        height: 450,
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    cardContent: {
+        flexGrow: 1,
+    },
+    cardActions: {
+        display: "flex",
+        justifyContent: "flex-end",
+    },
+});
+
+const BackLessonCard = ({ lesson, handleClick, classes }) => (
+    <div>
+        <Card className={classes.card}>
+            <CardContent className={classes.cardContent}>
+                <Typography gutterBottom variant="h5">
+                    {lesson.title}
+                </Typography>
+                <Stepper activeStep={1} orientation="vertical">
+                    {lesson.challenges.map((challenge, i) => (
+                        <Step key={i}>
+                            <StepLabel>{challenge.points} {challenge.title}</StepLabel>
+                        </Step>
+                    ))}
+                </Stepper>
+            </CardContent>
+            <Divider variant="middle" />
+            <CardActions className={classes.cardActions}>
+                <Button size="small" color="secondary" onClick={handleClick}>
+                    <FlipToFrontIcon />
+                </Button>
+            </CardActions>
+        </Card>
+    </div>
+);
+
+export default withStyles(styles)(BackLessonCard);

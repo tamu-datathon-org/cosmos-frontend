@@ -29,7 +29,7 @@ class NavBar extends Component {
                             src={AVATAR_SRC}
                             style={{ marginRight: '20px' }}
                         />
-                        <Typography variant="title">
+                        <Typography variant="h5">
                             John Doe
                         </Typography>
                         <Tabs
