@@ -1,5 +1,5 @@
 import FlipToFrontIcon from '@material-ui/icons/FlipToFront';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import CardActions from '@material-ui/core/CardActions';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
@@ -28,7 +28,7 @@ const styles = () => ({
 
 const BackLessonCard = ({ lesson, handleClick, classes }) => (
     <div>
-        <Card className={classes.card}>
+        <Card className={classes.card}>   {/* raised={true} */}
             <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant="h5">
                     {lesson.title}
@@ -43,12 +43,12 @@ const BackLessonCard = ({ lesson, handleClick, classes }) => (
             </CardContent>
             <Divider variant="middle" />
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="secondary" onClick={handleClick}>
+                <IconButton color="secondary" onClick={handleClick} aria-label="Show more">
                     <FlipToFrontIcon />
-                </Button>
+                </IconButton>
             </CardActions>
         </Card>
-    </div>
+    </div >
 );
 
 export default withStyles(styles)(BackLessonCard);
