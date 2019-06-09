@@ -24,7 +24,7 @@ class NavBar extends Component {
     render = () => {
         return (
             <div>
-                <AppBar style={{ 'margin-bottom': '20px' }} position="static">
+                <AppBar style={{ 'marginBottom': '20px' }} position="static">
                     <Toolbar variant="dense">
                         <Avatar src={AVATAR_SRC} style={{ marginRight: '20px' }} />
                         <Typography variant="h5">Cosmos</Typography>
