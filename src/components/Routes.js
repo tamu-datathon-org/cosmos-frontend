@@ -1,14 +1,16 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import LessonsPage from './lessons/LessonsPage';
 import HomePage from './home/HomePage';
 import NotFound from './NotFound';
+import Login from './Login';
 
 const Routes = () => (
-    <div>
+    <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/lessons" component={LessonsPage} />
+        <Route exact path="/login" component={Login} />
         <Route component={NotFound} />
-    </div>
+    </Switch>
 );
 export default Routes;
