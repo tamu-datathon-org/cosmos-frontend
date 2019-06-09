@@ -9,11 +9,12 @@ import Avatar from '@material-ui/core/Avatar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-const AVATAR_SRC = "http://cdn.osxdaily.com/wp-content/uploads/2014/03/cosmos-space-wallpaper-6.jpg";
+const AVATAR_SRC =
+    'http://cdn.osxdaily.com/wp-content/uploads/2014/03/cosmos-space-wallpaper-6.jpg';
 
 class NavBar extends Component {
     state = {
-        value: this.props.location.pathname === "/" ? 0 : 1,
+        value: this.props.location.pathname === '/' ? 0 : 1,
     };
 
     handleChange = (event, value) => {
@@ -23,22 +24,18 @@ class NavBar extends Component {
     render = () => {
         return (
             <div>
-                <AppBar className="nav-bar" position="static">
+                <AppBar style={{ 'margin-bottom': '20px' }} position="static">
                     <Toolbar variant="dense">
-                        <Avatar
-                            src={AVATAR_SRC}
-                            style={{ marginRight: '20px' }}
-                        />
-                        <Typography variant="h5">
-                            John Doe
-                        </Typography>
+                        <Avatar src={AVATAR_SRC} style={{ marginRight: '20px' }} />
+                        <Typography variant="h5">Cosmos</Typography>
                         <Tabs
                             style={{ position: 'absolute', right: '0px' }}
                             value={this.state.value}
                             onChange={this.handleChange}
                         >
-                            <Tab label="Home" component={Link} to="/" />
-                            <Tab label="Lessons" component={Link} to="/lessons" />
+                            <Tab label="Signup" component={Link} to="/signup" />
+                            <Tab label="Login" component={Link} to="/login" />
+
                         </Tabs>
                     </Toolbar>
                 </AppBar>
@@ -47,4 +44,4 @@ class NavBar extends Component {
     };
 }
 
-export default withRouter(props => <NavBar {...props} />);
+export default withRouter((props) => <NavBar {...props} />);
