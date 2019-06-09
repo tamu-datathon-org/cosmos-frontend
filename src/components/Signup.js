@@ -171,4 +171,5 @@ class Signup extends Component {
         );
     }
 }
+
 export default withStyles(styles)(Signup);

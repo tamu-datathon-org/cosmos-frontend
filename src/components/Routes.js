@@ -4,6 +4,7 @@ import LessonsPage from './lessons/LessonsPage';
 import Signup from './Signup';
 import NotFound from './NotFound';
 import Login from './Login';
+import NewAttempt from './NewAttempt';
 import AppliedRoute from './AppliedRoute';
 
 const Routes = ({ childProps }) => (
@@ -11,6 +12,7 @@ const Routes = ({ childProps }) => (
         <Redirect exact path="/" to="/login" />
         <AppliedRoute exact path="/lessons" component={LessonsPage} props={childProps} />
         <AppliedRoute path="/signup" exact component={Signup} props={childProps} />
+        <AppliedRoute path="/attempt/new" exact component={NewAttempt} props={childProps} />
         <AppliedRoute exact path="/login" component={Login} props={childProps} />
         <Route component={NotFound} />
     </Switch>
