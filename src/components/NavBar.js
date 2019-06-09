@@ -24,7 +24,7 @@ class NavBar extends Component {
         return (
             <div>
                 <AppBar className="nav-bar" position="static">
-                    <Toolbar>
+                    <Toolbar variant="dense">
                         <Avatar
                             src={AVATAR_SRC}
                             style={{ marginRight: '20px' }}

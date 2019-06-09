@@ -36,6 +36,12 @@ const styles = () => ({
     },
     cardContent: {
         flexGrow: 1,
+        display: 'flex',
+        flexDirection: 'column'
+    },
+    cardDescription: {
+        overflowY: 'auto',
+        maxHeight: '100%',
     },
     cardActions: {
         display: "flex",
@@ -60,7 +66,7 @@ const FrontLessonCard = ({ lesson, handleClick, classes }) => (
             <Typography gutterBottom variant="h5">
                 {lesson.title}
             </Typography>
-            <Typography color="textSecondary">
+            <Typography className={classes.cardDescription} color="textSecondary">
                 {lesson.description}
             </Typography>
         </CardContent>

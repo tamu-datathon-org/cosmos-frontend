@@ -63,7 +63,7 @@
         "link": "https://research.google.com/seedbank/seed/lab__training_your_first_tf_linear_regression_model",
         "completed": false,
         "linkText": "View on Colab",
-        "description": "Learn how to set up the features in TensorFlow to train a model using an automobile data set.",
+        "description": "Learn how to set up the features in TensLearn how to set up the Learn how to Learn how to set up the features in Tensset up the features in Tensfeatures in TensorFlow to train a model using an automobile data set.Learn how to set up the features in TensorFlow to train a model using an automobile data set.Learn how to set up the features in TensorFlow to train a model using an automobile data set.Learn how to set up the features in TensLearn how to set up the Learn how to Learn how to set up the features in Tensset up the features in Tensfeatures in TensorFlow to train a model using an automobile data set.Learn how to set up the features in TensorFlow to train a model using an automobile data set.Learn how to set up the features in TensorFlow to train a model using an automobile data set.",
         "challenges": [
             {
                 "title": "Computing the Loss",
@@ -74,6 +74,26 @@
                 "title": "Modify the hyperparmaters to get a better model",
                 "link": "",
                 "points": 3
+            },
+            {
+                "title": "Try a Different Input Feature.",
+                "link": "",
+                "points": 2
+            },
+            {
+                "title": "Try a Different Input Feature.",
+                "link": "",
+                "points": 2
+            },
+            {
+                "title": "Try a Different Input Feature.",
+                "link": "",
+                "points": 2
+            },
+            {
+                "title": "Try a Different Input Feature.",
+                "link": "",
+                "points": 2
             },
             {
                 "title": "Try a Different Input Feature.",

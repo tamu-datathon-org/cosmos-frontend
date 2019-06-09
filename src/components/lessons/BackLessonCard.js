@@ -19,6 +19,12 @@ const styles = () => ({
     },
     cardContent: {
         flexGrow: 1,
+        display: 'flex',
+        flexDirection: 'column'
+    },
+    cardDescription: {
+        overflowY: 'auto',
+        maxHeight: '100%',
     },
     cardActions: {
         display: "flex",
@@ -33,7 +39,8 @@ const BackLessonCard = ({ lesson, handleClick, classes }) => (
                 <Typography gutterBottom variant="h5">
                     {lesson.title}
                 </Typography>
-                <Stepper activeStep={1} orientation="vertical">
+                {/* Add fade out to items as they scroll out and vice-versa */}
+                <Stepper className={classes.cardDescription} activeStep={1} orientation="vertical">
                     {lesson.challenges.map((challenge, i) => (
                         <Step key={i}>
                             <StepLabel>{challenge.points} {challenge.title}</StepLabel>

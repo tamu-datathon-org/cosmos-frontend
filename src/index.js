@@ -5,6 +5,10 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { BrowserRouter } from 'react-router-dom';
+//CssBaseline - https://material-ui.com/components/css-baseline/
+//Source Code - https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/CssBaseline/CssBaseline.js
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 
 const cyan = '#49c6b2';
 const blue = '#499cc6';
@@ -29,6 +33,7 @@ const THEME = createMuiTheme({
 ReactDOM.render(
     <BrowserRouter>
         <MuiThemeProvider theme={THEME}>
+            <CssBaseline />
             <App />
         </MuiThemeProvider>
     </BrowserRouter>,
