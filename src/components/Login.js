@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
+import LoadingButton from './LoadingButton';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
@@ -14,13 +14,8 @@ const styles = (theme) => ({
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
     },
-    dense: {
-        marginTop: theme.spacing(2),
-    },
-    submitButton: {
-        width: '100%',
-    },
 });
+
 
 class Login extends Component {
     constructor(props) {
@@ -29,6 +24,7 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
+            isLoading: false,
         };
     }
 
@@ -45,11 +41,15 @@ class Login extends Component {
     handleSubmit = async (event) => {
         event.preventDefault();
 
+        this.setState({ isLoading: true });
+
         try {
             await Auth.signIn(this.state.email, this.state.password);
-            alert('Logged in');
+            this.props.userHasAuthenticated(true);
+            this.props.history.push('/lessons');
         } catch (e) {
             alert(e.message);
+            this.setState({ isLoading: false });
         }
     };
 
@@ -57,10 +57,8 @@ class Login extends Component {
         return (
             <Grid
                 container
-                spacing={0}
                 direction="column"
                 alignItems="center"
-                style={{ minHeight: '100vh' }}
             >
                 <Grid item xs={3}>
                     <form onSubmit={this.handleSubmit}>
@@ -85,14 +83,15 @@ class Login extends Component {
                             variant="outlined"
                         />
                         <br />
-                        <Button
+                        <LoadingButton
+                            loading={this.state.isLoading}
                             className={this.props.classes.submitButton}
                             variant="outlined"
                             disabled={!this.validateForm()}
                             type="submit"
-                        >
-                            Login
-                        </Button>
+                            title="Login"
+                            loadingTitle="Logging In"
+                        />
                     </form>
                 </Grid>
             </Grid>

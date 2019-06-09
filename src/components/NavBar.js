@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { Auth } from 'aws-amplify';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,30 +13,59 @@ const AVATAR_SRC =
     'http://cdn.osxdaily.com/wp-content/uploads/2014/03/cosmos-space-wallpaper-6.jpg';
 
 class NavBar extends Component {
-    state = {
-        value: this.props.location.pathname === '/' ? 0 : 1,
-    };
+    constructor(props){
+        super(props);
+        let value;
+        switch (this.props.location.pathname) {
+            case '/lessons':
+            case '/login':
+                value = 0;
+                break;
+            case '/signup':
+                value = 1;
+                break;                                
+            default:
+                value = 0;
+                break;
+        }
+        
+        this.state = { value }
+    }
 
     handleChange = (event, value) => {
         this.setState({ value });
     };
 
+    handleLogout = async (event) => {
+        await Auth.signOut();
+
+        this.props.userHasAuthenticated(false);
+
+        this.props.history.push('/login');
+    };
+
     render = () => {
+        const tabsProps = {
+            style: { position: 'absolute', right: '0px' },
+            value: this.state.value,
+            onChange: this.handleChange,
+        };
         return (
             <div>
-                <AppBar style={{ 'marginBottom': '20px' }} position="static">
+                <AppBar style={{ marginBottom: '20px' }} position="static">
                     <Toolbar variant="dense">
                         <Avatar src={AVATAR_SRC} style={{ marginRight: '20px' }} />
                         <Typography variant="h5">Cosmos</Typography>
-                        <Tabs
-                            style={{ position: 'absolute', right: '0px' }}
-                            value={this.state.value}
-                            onChange={this.handleChange}
-                        >
-                            <Tab label="Signup" component={Link} to="/signup" />
-                            <Tab label="Login" component={Link} to="/login" />
-
-                        </Tabs>
+                        {this.props.isAuthenticated ? (
+                            <Tabs {...tabsProps}>
+                                <Tab label="Logout" onClick={this.handleLogout} />
+                            </Tabs>
+                        ) : (
+                            <Tabs {...tabsProps}>
+                                <Tab label="Login" component={Link} to="/login" />
+                                <Tab label="Signup" component={Link} to="/signup" />
+                            </Tabs>
+                        )}
                     </Toolbar>
                 </AppBar>
             </div>
@@ -44,4 +73,4 @@ class NavBar extends Component {
     };
 }
 
-export default withRouter((props) => <NavBar {...props} />);
+export default withRouter(NavBar);
