@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoadingButton from './LoadingButton';
+import LoadingButton from '../elements/LoadingButton';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoaderButton from './LoadingButton';
+import LoaderButton from '../elements/LoadingButton';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';

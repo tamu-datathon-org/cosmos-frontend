@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -33,7 +32,7 @@ const THEME = createMuiTheme({
         },
     },
     typography: {
-        fontFamily: '"Indie Flower", cursive',
+        fontFamily: "'Source Sans Pro', 'sans-serif'",
     },
 });
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoadingButton from './LoadingButton';
+import LoadingButton from '../elements/LoadingButton';
 import TextField from '@material-ui/core/TextField';
 import { API } from 'aws-amplify';
 import Grid from '@material-ui/core/Grid';
