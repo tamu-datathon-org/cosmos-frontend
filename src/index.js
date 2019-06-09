@@ -28,6 +28,9 @@ const THEME = createMuiTheme({
             main: green,
         },
     },
+    typography: {
+        "fontFamily": "\"Indie Flower\", cursive",
+    }
 });
 
 ReactDOM.render(
