@@ -64,7 +64,7 @@ export default class HomePage extends Component {
 
     renderLander() {
         return (
-            <div className="lander">
+            <>
                 <Grid item>
                     <Typography variant="h2">Cosmos</Typography>
                 </Grid>
@@ -87,7 +87,7 @@ export default class HomePage extends Component {
                         </Link>
                     </Button>
                 </Grid>
-            </div>
+            </>
         );
     }
 
@@ -109,7 +109,7 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <Grid container direction="column" alignItems="center" spacing={5}>
+            <Grid container direction="column" alignItems="center" spacing={4}>
                 {this.props.isAuthenticated ? this.renderAttempts() : this.renderLander()}
             </Grid>
         );
