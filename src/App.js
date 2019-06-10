@@ -19,7 +19,7 @@ class App extends Component {
             this.userHasAuthenticated(true);
         } catch (e) {
             if (e !== 'No current user') {
-                alert(e);
+                alert(e.message);
             }
         }
 

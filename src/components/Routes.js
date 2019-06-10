@@ -1,19 +1,32 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import LessonsPage from './lessons/LessonsPage';
 import Signup from './Signup';
 import NotFound from './NotFound';
 import Login from './Login';
 import NewAttempt from './NewAttempt';
 import AppliedRoute from './AppliedRoute';
+import HomePage from './HomePage';
+import AuthenticatedRoute from './AuthenticatedRoute';
+import UnauthenticatedRoute from './UnauthenticatedRoute';
 
 const Routes = ({ childProps }) => (
     <Switch>
-        <Redirect exact path="/" to="/login" />
-        <AppliedRoute exact path="/lessons" component={LessonsPage} props={childProps} />
-        <AppliedRoute path="/signup" exact component={Signup} props={childProps} />
-        <AppliedRoute path="/attempt/new" exact component={NewAttempt} props={childProps} />
-        <AppliedRoute exact path="/login" component={Login} props={childProps} />
+        <AppliedRoute exact path="/" component={HomePage} props={childProps} />
+        <AuthenticatedRoute exact path="/lessons" component={LessonsPage} props={childProps} />
+        <UnauthenticatedRoute path="/login" exact component={Login} props={childProps} />
+        <UnauthenticatedRoute
+            path="/signup"
+            exact
+            component={Signup}
+            props={childProps}
+        />
+        <AuthenticatedRoute
+            path="/attempts/new"
+            exact
+            component={NewAttempt}
+            props={childProps}
+        />
         <Route component={NotFound} />
     </Switch>
 );
