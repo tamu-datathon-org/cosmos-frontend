@@ -70,7 +70,7 @@ export default class HomePage extends Component {
                 </Grid>
                 <Grid item>
                     <Typography variant="h5">
-                        A Progress Tracker for Learning Anything
+                        Fuel Your Learning Voyage
                     </Typography>
                 </Grid>
                 <Grid item xs={12}>

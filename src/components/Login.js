@@ -59,7 +59,7 @@ class Login extends Component {
                 direction="column"
                 alignItems="center"
             >
-                <Grid item xs={3}>
+                <Grid item xs={12} md={6}>
                     <form onSubmit={this.handleSubmit}>
                         <TextField
                             id="email"
