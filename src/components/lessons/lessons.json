@@ -11,22 +11,30 @@
             {
                 "title": "Create a scatter plot for new features",
                 "link": "",
-                "points": 1
+                "points": 1,
+                "passingCriteria": "accuracy",
+                "passingThreshold": 90
             },
             {
                 "title": "Explain what you see ",
                 "link": "",
-                "points": 1
+                "points": 1,
+                "passingCriteria": "accuracy",
+                "passingThreshold": 90
             },
             {
                 "title": "Options to handle missing data",
                 "link": "",
-                "points": 1
+                "points": 1,
+                "passingCriteria": "accuracy",
+                "passingThreshold": 90
             },
             {
                 "title": "Build a Linear Regression Model",
                 "link": "",
-                "points": 1
+                "points": 1,
+                "passingCriteria": "accuracy",
+                "passingThreshold": 90
             }
         ]
     },

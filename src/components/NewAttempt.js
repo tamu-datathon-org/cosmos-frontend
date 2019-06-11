@@ -7,14 +7,12 @@ import config from '../config';
 
 export default class NewAttempt extends Component {
     state = {
-        file: null,
         isLoading: null,
-        content: '',
+        project: '',
+        lesson: '',
+        challenge: '',
+        answer: [],
     };
-
-    validateForm() {
-        return this.state.content.length > 0;
-    }
 
     handleChange = (event) => {
         this.setState({
@@ -22,27 +20,33 @@ export default class NewAttempt extends Component {
         });
     };
 
-    handleFileChange = (event) => {
-        this.file = event.target.files[0];
+    validateForm = () => this.state.project && this.state.lesson && this.state.challenge;
+
+    validateSubmittion = ({ project, lesson, challenge, answer }) => {
+        if (!(project && lesson && challenge)) {
+            alert('Please enter a field for project, lesson and challenge.');
+            return false;
+        }
+        if (!(answer[0] === '[' && answer[answer.length - 1] === ']')) {
+            alert('Please enter the answer in the form of a list. i.e. [1, 2, 3]');
+            return false;
+        }
+        answer = answer
+            .slice(1, answer.length - 1)
+            .split(',')
+            .map((x) => parseInt(x));
+        return { project, lesson, challenge, answer };
     };
 
     handleSubmit = async (event) => {
         event.preventDefault();
-
-        if (this.file && this.file.size > config.MAX_ATTACHMENT_SIZE) {
-            alert(
-                `Please pick a file smaller than ${config.MAX_ATTACHMENT_SIZE /
-                    1000000} MB.`
-            );
-            return;
-        }
+        const submittion = this.validateSubmittion(this.state);
+        if (!submittion) return;
 
         this.setState({ isLoading: true });
 
         try {
-            await this.createNote({
-                content: this.state.content,
-            });
+            await this.createAttempt(submittion);
             this.props.history.push('/lessons');
         } catch (e) {
             alert(e);
@@ -50,31 +54,45 @@ export default class NewAttempt extends Component {
         }
     };
 
-    createNote(note) {
-        return API.post('cosmos', '/events', {
-            body: note,
+    createAttempt(submittion) {
+        return API.post('cosmos', '/attempts', {
+            body: submittion,
         });
     }
+
+    makeTextField = (name) => (
+        <TextField
+            id={name}
+            onChange={this.handleChange}
+            value={this.state[name]}
+            type="textarea"
+            label={name}
+            multiline
+            rowsMax={5}
+            variant="outlined"
+            margin="normal"
+        />
+    );
 
     render() {
         return (
             <Grid container direction="column" alignItems="center">
-                <Grid item xs={3}>
+                <Grid item xs={12} md={4}>
                     <form onSubmit={this.handleSubmit}>
-                        <TextField
-                            id="content"
-                            onChange={this.handleChange}
-                            value={this.state.content}
-                            type="textarea"
-                        />
+                        {this.makeTextField('project')}
                         <br />
+                        {this.makeTextField('lesson')}
+                        <br />
+                        {this.makeTextField('challenge')}
+                        <br />
+                        {this.makeTextField('answer')}
                         <br />
                         <LoadingButton
                             disabled={!this.validateForm()}
                             type="submit"
                             loading={this.state.isLoading}
-                            title="Create"
-                            loadingTitle="Creating…"
+                            title="Submit"
+                            loadingTitle="Submitting…"
                         />
                     </form>
                 </Grid>

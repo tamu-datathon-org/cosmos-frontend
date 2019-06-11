@@ -36,7 +36,7 @@ export default class HomePage extends Component {
     }
 
     attempts() {
-        return API.get('cosmos', '/events');
+        return API.get('cosmos', '/attempts');
     }
 
     renderAttemptsList(attempts) {
@@ -44,7 +44,7 @@ export default class HomePage extends Component {
             i !== 0 ? (
                 <ListItem key={uuid.v4()}>
                     <ListItemText
-                        primary={attempt.content.trim().split('\n')[0]}
+                        primary={`${attempt.project.trim()}: ${attempt.challenge.trim()}`}
                         secondary={
                             'Submitted: ' + new Date(attempt.createdAt).toLocaleString()
                         }
@@ -69,9 +69,7 @@ export default class HomePage extends Component {
                     <Typography variant="h2">Cosmos</Typography>
                 </Grid>
                 <Grid item>
-                    <Typography variant="h5">
-                        Fuel Your Learning Voyage
-                    </Typography>
+                    <Typography variant="h5">Fuel Your Learning Voyage</Typography>
                 </Grid>
                 <Grid item xs={12}>
                     <Button variant="outlined">
