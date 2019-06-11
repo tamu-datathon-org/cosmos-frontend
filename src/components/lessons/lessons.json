@@ -13,28 +13,32 @@
                 "link": "",
                 "points": 1,
                 "passingCriteria": "accuracy",
-                "passingThreshold": 90
+                "passingThreshold": 90,
+                "passed": true
             },
             {
                 "title": "Explain what you see ",
                 "link": "",
                 "points": 1,
                 "passingCriteria": "accuracy",
-                "passingThreshold": 90
+                "passingThreshold": 90,
+                "passed": false
             },
             {
                 "title": "Options to handle missing data",
                 "link": "",
                 "points": 1,
                 "passingCriteria": "accuracy",
-                "passingThreshold": 90
+                "passingThreshold": 90,
+                "passed": true
             },
             {
                 "title": "Build a Linear Regression Model",
                 "link": "",
                 "points": 1,
                 "passingCriteria": "accuracy",
-                "passingThreshold": 90
+                "passingThreshold": 90,
+                "passed": false
             }
         ]
     },
@@ -50,17 +54,20 @@
             {
                 "title": "Computing the Loss",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": true
             },
             {
                 "title": "Modify the hyperparmaters to get a better model",
                 "link": "",
-                "points": 3
+                "points": 3,
+                "passed": true
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             }
         ]
     },
@@ -76,37 +83,44 @@
             {
                 "title": "Computing the Loss",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": true
             },
             {
                 "title": "Modify the hyperparmaters to get a better model",
                 "link": "",
-                "points": 3
+                "points": 3,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": true
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             }
         ]
     },
@@ -122,17 +136,20 @@
             {
                 "title": "Computing the Loss",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": true
             },
             {
                 "title": "Modify the hyperparmaters to get a better model",
                 "link": "",
-                "points": 3
+                "points": 3,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             }
         ]
     },
@@ -148,17 +165,20 @@
             {
                 "title": "Computing the Loss",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             },
             {
                 "title": "Modify the hyperparmaters to get a better model",
                 "link": "",
-                "points": 3
+                "points": 3,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             }
         ]
     }

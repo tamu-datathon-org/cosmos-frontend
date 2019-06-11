@@ -6,6 +6,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { BrowserRouter } from 'react-router-dom';
 import Amplify from 'aws-amplify';
 import config from './config';
+import './assets/scrollbar.css';
 
 //CssBaseline - https://material-ui.com/components/css-baseline/
 //Source Code - https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/CssBaseline/CssBaseline.js
