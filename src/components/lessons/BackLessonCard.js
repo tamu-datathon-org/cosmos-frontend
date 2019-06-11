@@ -40,10 +40,10 @@ const BackLessonCard = ({ lesson, handleClick, classes }) => (
                     {lesson.title}
                 </Typography>
                 {/* Add fade out to items as they scroll out and vice-versa */}
-                <Stepper className={classes.cardDescription} activeStep={1} orientation="vertical">
+                <Stepper className={classes.cardDescription} activeStep={-1} orientation="vertical">
                     {lesson.challenges.map((challenge, i) => (
                         <Step key={i}>
-                            <StepLabel>{challenge.points} {challenge.title}</StepLabel>
+                            <StepLabel completed={challenge.passed}>{challenge.points} {challenge.title}</StepLabel>
                         </Step>
                     ))}
                 </Stepper>

@@ -19,7 +19,7 @@ const styles = () => ({
         flexDirection: 'column',
     },
     backgroundImage: {
-        height: 150,
+        height: '45%',
         objectFit: 'cover',
         padding: 20,
     },
@@ -37,11 +37,13 @@ const styles = () => ({
     cardContent: {
         flexGrow: 1,
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
     cardDescription: {
         overflowY: 'auto',
         maxHeight: '100%',
+        //For Scroll Bar
+        paddingRight: 5,
     },
     cardActions: {
         display: "flex",

@@ -11,22 +11,26 @@
             {
                 "title": "Create a scatter plot for new features",
                 "link": "",
-                "points": 1
+                "points": 1,
+                "passed": true
             },
             {
                 "title": "Explain what you see ",
                 "link": "",
-                "points": 1
+                "points": 1,
+                "passed": false
             },
             {
                 "title": "Options to handle missing data",
                 "link": "",
-                "points": 1
+                "points": 1,
+                "passed": true
             },
             {
                 "title": "Build a Linear Regression Model",
                 "link": "",
-                "points": 1
+                "points": 1,
+                "passed": false
             }
         ]
     },
@@ -42,17 +46,20 @@
             {
                 "title": "Computing the Loss",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": true
             },
             {
                 "title": "Modify the hyperparmaters to get a better model",
                 "link": "",
-                "points": 3
+                "points": 3,
+                "passed": true
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             }
         ]
     },
@@ -68,37 +75,44 @@
             {
                 "title": "Computing the Loss",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": true
             },
             {
                 "title": "Modify the hyperparmaters to get a better model",
                 "link": "",
-                "points": 3
+                "points": 3,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": true
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             }
         ]
     },
@@ -114,17 +128,20 @@
             {
                 "title": "Computing the Loss",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": true
             },
             {
                 "title": "Modify the hyperparmaters to get a better model",
                 "link": "",
-                "points": 3
+                "points": 3,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             }
         ]
     },
@@ -140,17 +157,20 @@
             {
                 "title": "Computing the Loss",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             },
             {
                 "title": "Modify the hyperparmaters to get a better model",
                 "link": "",
-                "points": 3
+                "points": 3,
+                "passed": false
             },
             {
                 "title": "Try a Different Input Feature.",
                 "link": "",
-                "points": 2
+                "points": 2,
+                "passed": false
             }
         ]
     }
