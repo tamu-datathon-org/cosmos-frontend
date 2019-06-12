@@ -13,7 +13,7 @@ const AVATAR_SRC =
     'http://cdn.osxdaily.com/wp-content/uploads/2014/03/cosmos-space-wallpaper-6.jpg';
 
 class NavBar extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         let value;
         switch (this.props.location.pathname) {
@@ -23,12 +23,12 @@ class NavBar extends Component {
                 break;
             case '/signup':
                 value = 1;
-                break;                                
+                break;
             default:
                 value = 0;
                 break;
         }
-        
+
         this.state = { value }
     }
 
@@ -61,11 +61,11 @@ class NavBar extends Component {
                                 <Tab label="Logout" onClick={this.handleLogout} />
                             </Tabs>
                         ) : (
-                            <Tabs {...tabsProps}>
-                                <Tab label="Login" component={Link} to="/login" />
-                                <Tab label="Signup" component={Link} to="/signup" />
-                            </Tabs>
-                        )}
+                                <Tabs {...tabsProps}>
+                                    <Tab label="Sign In" component={Link} to="/login" />
+                                    <Tab label="Sign Up" component={Link} to="/signup" />
+                                </Tabs>
+                            )}
                     </Toolbar>
                 </AppBar>
             </div>

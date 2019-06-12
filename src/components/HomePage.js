@@ -51,14 +51,14 @@ export default class HomePage extends Component {
                     />
                 </ListItem>
             ) : (
-                <Button variant="contained" key="new">
-                    <Link to="/attempts/new" component={RouterLink}>
-                        <ListItem>
-                            <ListItemText primary="Submit a new attempt" />
-                        </ListItem>
-                    </Link>
-                </Button>
-            )
+                    <Button variant="contained" key="new">
+                        <Link to="/attempts/new" component={RouterLink}>
+                            <ListItem>
+                                <ListItemText primary="Submit a new attempt" />
+                            </ListItem>
+                        </Link>
+                    </Button>
+                )
         );
     }
 
@@ -74,14 +74,14 @@ export default class HomePage extends Component {
                 <Grid item xs={12}>
                     <Button variant="outlined">
                         <Link to="/login" component={RouterLink}>
-                            Login
+                            Sign In
                         </Link>
                     </Button>
                 </Grid>
                 <Grid item xs={12}>
                     <Button variant="outlined">
                         <Link to="/signup" component={RouterLink}>
-                            Signup
+                            Sign Up
                         </Link>
                     </Button>
                 </Grid>

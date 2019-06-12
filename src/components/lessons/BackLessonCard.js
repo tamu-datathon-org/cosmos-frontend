@@ -55,7 +55,7 @@ const BackLessonCard = ({ lesson, handleClick, classes }) => (
                 </IconButton>
             </CardActions>
         </Card>
-    </div >
+    </div>
 );
 
 export default withStyles(styles)(BackLessonCard);
