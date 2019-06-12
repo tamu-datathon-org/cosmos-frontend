@@ -22,7 +22,7 @@ export default class NewAttempt extends Component {
 
     validateForm = () => this.state.project && this.state.lesson && this.state.challenge;
 
-    validateSubmittion = ({ project, lesson, challenge, answer }) => {
+    validatesubmission = ({ project, lesson, challenge, answer }) => {
         if (!(project && lesson && challenge)) {
             alert('Please enter a field for project, lesson and challenge.');
             return false;
@@ -40,13 +40,13 @@ export default class NewAttempt extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        const submittion = this.validateSubmittion(this.state);
-        if (!submittion) return;
+        const submission = this.validatesubmission(this.state);
+        if (!submission) return;
 
         this.setState({ isLoading: true });
 
         try {
-            await this.createAttempt(submittion);
+            await this.createAttempt(submission);
             this.props.history.push('/lessons');
         } catch (e) {
             alert(e);
@@ -54,9 +54,9 @@ export default class NewAttempt extends Component {
         }
     };
 
-    createAttempt(submittion) {
+    createAttempt(submission) {
         return API.post('cosmos', '/attempts', {
-            body: submittion,
+            body: submission,
         });
     }
 
