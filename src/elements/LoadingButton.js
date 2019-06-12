@@ -5,16 +5,9 @@ import green from '@material-ui/core/colors/green';
 import Button from '@material-ui/core/Button';
 
 const styles = (theme) => ({
-    root: {
-        display: 'flex',
-        alignItems: 'center',
-    },
     wrapper: {
         margin: theme.spacing(1),
         position: 'relative',
-    },
-    button: {
-        width: '130px',
     },
     buttonProgress: {
         color: green[500],
@@ -27,13 +20,12 @@ const styles = (theme) => ({
 });
 
 const LoadingButton = ({ title, loadingTitle, loading, classes, ...rest }) => (
-    <div className={classes.root}>
+    <div>
         <div className={classes.wrapper}>
             <Button
                 variant="contained"
                 color="primary"
                 disabled={loading}
-                className={classes.button}
                 {...rest}
             >
                 {loading ? loadingTitle : title}

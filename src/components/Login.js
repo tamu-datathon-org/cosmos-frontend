@@ -1,21 +1,19 @@
 //Based on Template - https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/page-layout-examples/sign-in
 
 import React, { Component } from 'react';
-// import LoadingButton from '../elements/LoadingButton';
+import LoadingButton from '../elements/LoadingButton';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
 import { Auth } from 'aws-amplify';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { Link as RouterLink } from 'react-router-dom';
-// import { AutoScaling } from 'aws-sdk/clients/all';
 
 
 const styles = (theme) => ({
@@ -115,28 +113,16 @@ class Login extends Component {
                             control={<Checkbox value="remember" color="primary" />}
                             label="Remember me"
                         />
-                        <Button
+                        <LoadingButton
                             type="submit"
-                            fullWidth
+                            fullWidth={true}
                             variant="contained"
-                            // variant="outlined"
-                            color="primary"
-                            className={this.props.classes.submit}
-                            disabled={!this.validateForm()}
-                        >
-                            Sign In
-                        </Button>
-                        {/* <LoadingButton
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            variant="outlined"
                             className={this.props.classes.submit}
                             loading={this.state.isLoading}
                             disabled={!this.validateForm()}
                             title="Sign In"
                             loadingTitle="Logging In"
-                        /> */}
+                        />
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">
