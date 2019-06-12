@@ -3,7 +3,6 @@ import LoadingButton from '../elements/LoadingButton';
 import TextField from '@material-ui/core/TextField';
 import { API } from 'aws-amplify';
 import Grid from '@material-ui/core/Grid';
-import config from '../config';
 
 export default class NewAttempt extends Component {
     state = {

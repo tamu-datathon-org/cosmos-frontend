@@ -33,7 +33,7 @@ const THEME = createMuiTheme({
         },
     },
     typography: {
-        // fontFamily: "'Source Sans Pro', 'sans-serif'",
+        fontFamily: "'Source Sans Pro', 'sans-serif'",
     },
 });
 
