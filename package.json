@@ -3,8 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@material-ui/core": "^4.0.2",
-        "@material-ui/icons": "^4.0.1",
+        "@material-ui/core": "^4.1.0",
+        "@material-ui/icons": "^4.1.0",
         "aws-amplify": "^1.1.28",
         "eslint": "^5.16.0",
         "react": "^16.8.6",

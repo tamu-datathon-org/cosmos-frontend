@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import { API } from 'aws-amplify';
 import { Link as RouterLink } from 'react-router-dom';
 import uuid from 'uuid';
+import Splashpage from './Splashpage';
 
 export default class HomePage extends Component {
     constructor(props) {
@@ -63,30 +64,7 @@ export default class HomePage extends Component {
     }
 
     renderLander() {
-        return (
-            <>
-                <Grid item>
-                    <Typography variant="h2">Cosmos</Typography>
-                </Grid>
-                <Grid item>
-                    <Typography variant="h5">Fuel Your Learning Voyage</Typography>
-                </Grid>
-                <Grid item xs={12}>
-                    <Button variant="outlined">
-                        <Link to="/login" component={RouterLink}>
-                            Sign In
-                        </Link>
-                    </Button>
-                </Grid>
-                <Grid item xs={12}>
-                    <Button variant="outlined">
-                        <Link to="/signup" component={RouterLink}>
-                            Sign Up
-                        </Link>
-                    </Button>
-                </Grid>
-            </>
-        );
+        return (<Splashpage />);
     }
 
     renderAttempts() {
@@ -107,9 +85,9 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <Grid container direction="column" alignItems="center" spacing={4}>
+            <>
                 {this.props.isAuthenticated ? this.renderAttempts() : this.renderLander()}
-            </Grid>
+            </>
         );
     }
 }

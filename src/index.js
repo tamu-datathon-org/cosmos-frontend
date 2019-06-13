@@ -24,6 +24,7 @@ const THEME = createMuiTheme({
         // Main provided, Dark, Light, and Contrast Text will be auto generated
         primary: {
             main: cyan,
+            contrastText: '#fff',
         },
         secondary: {
             main: blue,
@@ -31,9 +32,32 @@ const THEME = createMuiTheme({
         error: {
             main: green,
         },
+        text: {
+            primary: "#ffffff",
+            secondary: "#00000",
+        },
     },
     typography: {
-        fontFamily: "'Source Sans Pro', 'sans-serif'",
+        fontFamily: [
+            "'Comfortaa', 'cursive'",
+            "'Open Sans', 'sans-serif'",
+        ].join(','),
+    },
+    props: {
+        MuiTypography: {
+            variantMapping: {
+                h1: "'Comfortaa', 'cursive'",
+                h2: "'Open Sans', 'sans-serif'",
+                h3: 'h2',
+                h4: 'h2',
+                h5: 'h2',
+                h6: 'h2',
+                subtitle1: 'h2',
+                subtitle2: 'h2',
+                body1: 'span',
+                body2: 'span',
+            },
+        },
     },
 });
 
