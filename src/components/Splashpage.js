@@ -26,7 +26,7 @@ const styles = (theme) => ({
         paddingTop: 100,
         paddingBottom: 100,
     },
-    typographyMain: {
+    typography: {
         color: 'white',
     },
     icon: {
@@ -54,10 +54,10 @@ class Splashpage extends Component {
                         {/* Hero unit */}
                         <div className={this.props.classes.heroContent}>
                             <Container maxWidth="md">
-                                <Typography component="h1" variant="h1" align="center" color="textPrimary" gutterBottom>
+                                <Typography className={this.props.classes.typography} component="h1" variant="h1" align="center" color="textPrimary" gutterBottom>
                                     Cosmos
                             </Typography>
-                                <Typography variant="h3" align="center" color="textSecondary" paragraph>
+                                <Typography className={this.props.classes.typography} variant="h3" align="center" color="textSecondary" paragraph>
                                     Fuel Your Learning Voyage
                             </Typography>
                                 <div className={this.props.classes.heroButtons}>
@@ -80,25 +80,25 @@ class Splashpage extends Component {
                 </div>
                 <div className={this.props.classes.content}>
                     <Container>
-                        <Typography align="center" paragraph>
+                        <Typography className={this.props.classes.typography} align="center" paragraph>
                             Cosmos is for helping you deeply engage in your data science learning journey through gamification.
                             </Typography>
                         <Grid container justify="center" alignItems="center">
                             <Avatar alt="Planet" src="https://drive.google.com/uc?export=download&id=16Urxei-AJ6WPeXZJK6YIOclkduWf7I5c" className={this.props.classes.avatar} />
                         </Grid>
-                        <Typography align="center" paragraph>
+                        <Typography className={this.props.classes.typography} align="center" paragraph>
                             Attempt challenges in whatever coding language you want and submit your answers to Cosmos.
                     </Typography>
                         <Grid container justify="center" alignItems="center">
                             <Avatar alt="Planet" src="https://drive.google.com/uc?export=download&id=16Urxei-AJ6WPeXZJK6YIOclkduWf7I5c" className={this.props.classes.avatar} />
                         </Grid>
-                        <Typography align="center" paragraph>
+                        <Typography className={this.props.classes.typography} align="center" paragraph>
                             Our judging engine automatically grades your submissions based on various metrics.
                     </Typography>
                         <Grid container justify="center" alignItems="center">
                             <Avatar alt="Planet" src="https://drive.google.com/uc?export=download&id=16Urxei-AJ6WPeXZJK6YIOclkduWf7I5c" className={this.props.classes.avatar} />
                         </Grid>
-                        <Typography align="center" paragraph>
+                        <Typography className={this.props.classes.typography} align="center" paragraph>
                             Track your progress through the Cosmos gamified dashboard and redeem real-life prizes like stickers and a t-shirt for your accomplishments.
                         </Typography>
                     </Container></div>

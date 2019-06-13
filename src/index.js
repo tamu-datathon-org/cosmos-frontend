@@ -32,10 +32,6 @@ const THEME = createMuiTheme({
         error: {
             main: green,
         },
-        text: {
-            primary: "#ffffff",
-            secondary: "#00000",
-        },
     },
     typography: {
         fontFamily: [
