@@ -1,17 +1,17 @@
 export default {
     MAX_ATTACHMENT_SIZE: 5000000,
     s3: {
-        REGION: 's-east-1',
+        REGION: 'us-east-1',
         BUCKET: 'cosmos-uploads',
     },
     apiGateway: {
         REGION: 'us-east-1',
-        URL: 'https://a5re5c2ld4.execute-api.us-east-1.amazonaws.com/prod',
+        URL: 'https://521krbkm78.execute-api.us-east-1.amazonaws.com/prod',
     },
     cognito: {
         REGION: 'us-east-1',
-        USER_POOL_ID: 'us-east-1_o4eIId9fl',
-        APP_CLIENT_ID: '1jdbifq8c6i1v4pn916j25rk3e',
-        IDENTITY_POOL_ID: 'us-east-1:01b5649c-73fc-45e5-84c1-1fc0cf06ec47',
+        USER_POOL_ID: 'us-east-1_VFK1qqip0',
+        APP_CLIENT_ID: '3ir7gu6mff9pddmkgm0qa1jkvf',
+        IDENTITY_POOL_ID: 'us-east-1:95d2c9cd-b186-4b33-acd0-cfe18fb37e43',
     },
 };
