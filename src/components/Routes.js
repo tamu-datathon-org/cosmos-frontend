@@ -5,7 +5,6 @@ import Signup from './Signup';
 import NotFound from './NotFound';
 import Login from './Login';
 import ResetPassword from "./ResetPassword";
-import NewAttempt from './NewAttempt';
 import AppliedRoute from './AppliedRoute';
 import HomePage from './HomePage';
 import AuthenticatedRoute from './AuthenticatedRoute';
@@ -20,12 +19,6 @@ const Routes = ({ childProps }) => (
             path="/signup"
             exact
             component={Signup}
-            props={childProps}
-        />
-        <AuthenticatedRoute
-            path="/attempts/new"
-            exact
-            component={NewAttempt}
             props={childProps}
         />
         <UnauthenticatedRoute path="/login/reset" exact component={ResetPassword} props={childProps} />
