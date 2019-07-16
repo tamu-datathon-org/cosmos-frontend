@@ -131,7 +131,6 @@ class Signup extends Component {
 
     renderForm() {
         return (
-
             <div className={this.props.classes.paper}>
                 <Avatar className={this.props.classes.avatar}>
                     <LockOutlinedIcon />

@@ -4,6 +4,7 @@ import LessonsPage from './lessons/LessonsPage';
 import Signup from './Signup';
 import NotFound from './NotFound';
 import Login from './Login';
+import ResetPassword from "./ResetPassword";
 import NewAttempt from './NewAttempt';
 import AppliedRoute from './AppliedRoute';
 import HomePage from './HomePage';
@@ -27,6 +28,7 @@ const Routes = ({ childProps }) => (
             component={NewAttempt}
             props={childProps}
         />
+        <UnauthenticatedRoute path="/login/reset" exact component={ResetPassword} props={childProps} />
         <Route component={NotFound} />
     </Switch>
 );

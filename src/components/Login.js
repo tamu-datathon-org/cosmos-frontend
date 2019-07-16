@@ -125,7 +125,7 @@ class Login extends Component {
                         />
                         <Grid container>
                             <Grid item xs>
-                                <Link href="#" variant="body2">
+                                <Link to="/login/reset" component={RouterLink} variant="body2">
                                     Forgot password?
                                 </Link>
                             </Grid>
