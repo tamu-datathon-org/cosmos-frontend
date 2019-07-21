@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
-import { Auth } from 'aws-amplify';
+import { Auth, API } from 'aws-amplify';
 import Avatar from '@material-ui/core/Avatar';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -42,6 +42,8 @@ class Signup extends Component {
         this.state = {
             isLoading: false,
             email: '',
+            firstName: '',
+            lastName: '',
             password: '',
             confirmPassword: '',
             confirmationCode: '',
@@ -94,6 +96,8 @@ class Signup extends Component {
 
         try {
             await Auth.confirmSignUp(this.state.email, this.state.confirmationCode);
+            const { email, firstName, lastName } = this.state;
+            API.post('cosmos', '/users', { email, firstName, lastName });
             await Auth.signIn(this.state.email, this.state.password);
 
             this.props.userHasAuthenticated(true);
@@ -150,6 +154,8 @@ class Signup extends Component {
                                 id="firstName"
                                 label="First Name"
                                 autoFocus
+                                value={this.state.firstName}
+                                onChange={this.handleChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -161,6 +167,8 @@ class Signup extends Component {
                                 label="Last Name"
                                 name="lastName"
                                 autoComplete="lname"
+                                value={this.state.lastName}
+                                onChange={this.handleChange}
                             />
                         </Grid>
                         <Grid item xs={12}>

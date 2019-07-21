@@ -43,7 +43,7 @@ const BackLessonCard = ({ lesson, handleClick, classes }) => (
                 <Stepper className={classes.cardDescription} activeStep={-1} orientation="vertical">
                     {lesson.challenges.map((challenge, i) => (
                         <Step key={i}>
-                            <StepLabel completed={challenge.passed}>{challenge.points} {challenge.title}</StepLabel>
+                            <StepLabel completed={challenge.passed}>{challenge.points}: {challenge.challengeName}</StepLabel>
                         </Step>
                     ))}
                 </Stepper>
