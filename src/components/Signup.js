@@ -96,9 +96,9 @@ class Signup extends Component {
 
         try {
             await Auth.confirmSignUp(this.state.email, this.state.confirmationCode);
-            const { email, firstName, lastName } = this.state;
-            API.post('cosmos', '/users', { email, firstName, lastName });
             await Auth.signIn(this.state.email, this.state.password);
+            const { email, firstName, lastName } = this.state;
+            API.post('cosmos', '/users', { body: { email, firstName, lastName } });
 
             this.props.userHasAuthenticated(true);
             this.props.history.push('/');
@@ -142,7 +142,11 @@ class Signup extends Component {
                 <Typography component="h1" variant="h5">
                     Sign up
                 </Typography>
-                <form className={this.props.classes.form} noValidate onSubmit={this.handleSubmit}>
+                <form
+                    className={this.props.classes.form}
+                    noValidate
+                    onSubmit={this.handleSubmit}
+                >
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <TextField
@@ -213,7 +217,9 @@ class Signup extends Component {
                         </Grid>
                         <Grid item xs={12}>
                             <FormControlLabel
-                                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                                control={
+                                    <Checkbox value="allowExtraEmails" color="primary" />
+                                }
                                 label="I want to receive inspiration, marketing promotions and updates via email."
                             />
                         </Grid>
@@ -238,7 +244,6 @@ class Signup extends Component {
                     </Grid>
                 </form>
             </div>
-
         );
     }
 
