@@ -98,7 +98,7 @@ class Signup extends Component {
             await Auth.confirmSignUp(this.state.email, this.state.confirmationCode);
             await Auth.signIn(this.state.email, this.state.password);
             const { email, firstName, lastName } = this.state;
-            API.post('cosmos', '/users', { body: { email, firstName, lastName } });
+            await API.post('cosmos', '/users', { body: { email, firstName, lastName } });
 
             this.props.userHasAuthenticated(true);
             this.props.history.push('/');
