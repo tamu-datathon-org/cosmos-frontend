@@ -4,7 +4,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import React, { Component } from 'react';
 import LessonList from './LessonList';
 import { Container } from '@material-ui/core';
-import { API } from 'aws-amplify';
+import { API, Auth } from 'aws-amplify';
 
 export default class extends Component {
     state = {
@@ -13,13 +13,15 @@ export default class extends Component {
         lessons: [],
     };
 
-    getScoredChallenge = (chal) =>
-        API.get(
+    getScoredChallenge = async (chal) => {
+        const userEmail = (await Auth.currentAuthenticatedUser()).attributes.email;
+        return API.get(
             'cosmos',
             `/score/challenge/${chal.challengeId}?projectId=${
                 chal.projectId
-            }&email=${'josiahcoad@tamu.edu'}`
+            }&email=${userEmail}`
         ).then(({ data }) => ({ ...chal, ...data }));
+    }
 
     getScoredProject = (id) =>
         API.get('cosmos', `/projects/${id}`).then(async ({ data }) => ({
