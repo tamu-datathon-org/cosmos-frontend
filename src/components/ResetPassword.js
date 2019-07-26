@@ -108,6 +108,7 @@ class ResetPassword extends Component {
     renderConfirmationForm() {
         return (
             <form onSubmit={this.handleConfirmClick}>
+                <Typography>Please check your email ({this.state.email}) for the confirmation code.</Typography>
                 <TextField
                     value={this.state.code}
                     variant="outlined"
@@ -118,15 +119,13 @@ class ResetPassword extends Component {
                     autoFocus
                     onChange={this.handleChange}
                 />
-                <Typography>Please check your email ({this.state.email}) for the confirmation code.</Typography>
                 <TextField
                     variant="outlined"
                     required
                     fullWidth
-                    label="Password"
+                    label="New Password"
                     type="password"
                     id="password"
-                    autoComplete="current-password"
                     value={this.state.password}
                     onChange={this.handleChange}
                 />
@@ -158,7 +157,7 @@ class ResetPassword extends Component {
                 <p>Your password has been reset.</p>
                 <Link to="/login" component={RouterLink} variant="body2">
                     Click here to login with your new credentials.
-                    </Link>
+                </Link>
             </div>
         );
     }
@@ -167,11 +166,12 @@ class ResetPassword extends Component {
         return (
             <Container component="main" maxWidth="xs">
                 <div className="ResetPassword">
-                    {!this.state.codeSent
+                    {this.renderConfirmationForm()}
+                    {/* {!this.state.codeSent
                         ? this.renderRequestCodeForm()
                         : !this.state.confirmed
                             ? this.renderConfirmationForm()
-                            : this.renderSuccessMessage()}
+                            : this.renderSuccessMessage()} */}
                 </div>
             </Container>
         );

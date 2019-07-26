@@ -107,7 +107,7 @@ class Signup extends Component {
     renderConfirmationForm() {
         return (
             <form onSubmit={this.handleConfirmationSubmit}>
-                {/* <FormControlLabel>Confirmation Code</FormControlLabel> */}
+                <Typography>Please check your email for the code.</Typography>
                 <TextField
                     id="confirmationCode"
                     label="code"
@@ -117,7 +117,6 @@ class Signup extends Component {
                     margin="normal"
                     variant="outlined"
                 />
-                <Typography>Please check your email for the code.</Typography>
                 <LoaderButton
                     disabled={!this.validateConfirmationForm()}
                     type="submit"
