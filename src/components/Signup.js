@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
-import { Auth } from 'aws-amplify';
+import { Auth, API } from 'aws-amplify';
 import Avatar from '@material-ui/core/Avatar';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -42,6 +42,8 @@ class Signup extends Component {
         this.state = {
             isLoading: false,
             email: '',
+            firstName: '',
+            lastName: '',
             password: '',
             confirmPassword: '',
             confirmationCode: '',
@@ -95,6 +97,8 @@ class Signup extends Component {
         try {
             await Auth.confirmSignUp(this.state.email, this.state.confirmationCode);
             await Auth.signIn(this.state.email, this.state.password);
+            const { email, firstName, lastName } = this.state;
+            await API.post('cosmos', '/users', { body: { email, firstName, lastName } });
 
             this.props.userHasAuthenticated(true);
             this.props.history.push('/');
@@ -138,7 +142,11 @@ class Signup extends Component {
                 <Typography component="h1" variant="h5">
                     Sign up
                 </Typography>
-                <form className={this.props.classes.form} noValidate onSubmit={this.handleSubmit}>
+                <form
+                    className={this.props.classes.form}
+                    noValidate
+                    onSubmit={this.handleSubmit}
+                >
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <TextField
@@ -150,6 +158,8 @@ class Signup extends Component {
                                 id="firstName"
                                 label="First Name"
                                 autoFocus
+                                value={this.state.firstName}
+                                onChange={this.handleChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -161,6 +171,8 @@ class Signup extends Component {
                                 label="Last Name"
                                 name="lastName"
                                 autoComplete="lname"
+                                value={this.state.lastName}
+                                onChange={this.handleChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -205,7 +217,9 @@ class Signup extends Component {
                         </Grid>
                         <Grid item xs={12}>
                             <FormControlLabel
-                                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                                control={
+                                    <Checkbox value="allowExtraEmails" color="primary" />
+                                }
                                 label="I want to receive inspiration, marketing promotions and updates via email."
                             />
                         </Grid>
@@ -230,7 +244,6 @@ class Signup extends Component {
                     </Grid>
                 </form>
             </div>
-
         );
     }
 
