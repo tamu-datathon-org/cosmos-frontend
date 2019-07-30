@@ -8,20 +8,35 @@ import { API, Auth } from 'aws-amplify';
 
 export default class extends Component {
     state = {
-        loading: true,
+        projectLoading: true,
         error: '',
         lessons: [],
+        email: null,
     };
 
-    getScoredChallenge = async (chal) => {
-        const userEmail = (await Auth.currentAuthenticatedUser()).attributes.email;
-        return API.get(
-            'cosmos',
-            `/score/challenge/${chal.challengeId}?projectId=${
-                chal.projectId
-            }&email=${userEmail}`
-        ).then(({ data }) => ({ ...chal, ...data }));
+    componentDidMount() {
+        Auth.currentAuthenticatedUser()
+            .then((res) => res.attributes.email)
+            .then((email) => this.setState({ email }));
+        // project_id hard coded for now
+        const project_id = 'tamu_datathon';
+        this.getProject(project_id);
     }
+
+    getProject = (id) =>
+        this.getScoredProject(id)
+            .then(this.joinLessonChallenges)
+            .then(({ lessons }) => this.setState({ lessons }))
+            .catch((err) => this.setState({ error: err.response.data.errors[0] }))
+            .finally(() => this.setState({ projectLoading: false }));
+
+    getScoredChallenge = (chal) =>
+        API.get(
+            'cosmos',
+            `/score/challenge/${chal.challengeId}?projectId=${chal.projectId}&email=${
+                this.state.email
+            }`
+        ).then(({ data }) => ({ ...chal, ...data }));
 
     getScoredProject = (id) =>
         API.get('cosmos', `/projects/${id}`).then(async ({ data }) => ({
@@ -40,19 +55,6 @@ export default class extends Component {
         })),
         ...rest,
     });
-
-    getProject = (id) =>
-        this.getScoredProject(id)
-            .then(this.joinLessonChallenges)
-            .then(({ lessons }) => this.setState({ lessons }))
-            .catch((err) => this.setState({ error: err.response.data.errors[0] }))
-            .finally(() => this.setState({ loading: false }));
-
-    componentWillMount() {
-        // hard coded for now
-        const project_id = 'tamu_datathon';
-        this.getProject(project_id);
-    }
 
     renderLoading = () => (
         <div>
@@ -82,9 +84,8 @@ export default class extends Component {
     );
 
     render() {
-        const { loading, error, lessons } = this.state;
-        console.log(lessons);
-        return loading
+        const { projectLoading, error, lessons, email } = this.state;
+        return projectLoading && !email
             ? this.renderLoading()
             : error
             ? this.renderError(error)
