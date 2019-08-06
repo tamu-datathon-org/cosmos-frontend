@@ -17,7 +17,7 @@ const styles = (theme) => ({
         height: 160,
     },
     header: {
-        backgroundImage: 'url(https://drive.google.com/uc?export=download&id=1fUa6sJUcWzp7IIGfp2YtyclMPVR_OqEI)',
+        backgroundImage: 'url(https://revsearch-assets.s3.amazonaws.com/images/SpaceBackground.png)',
         marginTop: -20,
         minHeight: '100%',
     },
@@ -84,19 +84,19 @@ class Splashpage extends Component {
                             Cosmos is for helping you deeply engage in your data science learning journey through gamification.
                             </Typography>
                         <Grid container justify="center" alignItems="center">
-                            <Avatar alt="Planet" src="https://drive.google.com/uc?export=download&id=16Urxei-AJ6WPeXZJK6YIOclkduWf7I5c" className={this.props.classes.avatar} />
+                            <Avatar alt="Planet" src="https://revsearch-assets.s3.amazonaws.com/images/planet1.png" className={this.props.classes.avatar} />
                         </Grid>
                         <Typography className={this.props.classes.typography} align="center" paragraph>
                             Attempt challenges in whatever coding language you want and submit your answers to Cosmos.
                     </Typography>
                         <Grid container justify="center" alignItems="center">
-                            <Avatar alt="Planet" src="https://drive.google.com/uc?export=download&id=16Urxei-AJ6WPeXZJK6YIOclkduWf7I5c" className={this.props.classes.avatar} />
+                            <Avatar alt="Planet" src="https://revsearch-assets.s3.amazonaws.com/images/planet1.png" className={this.props.classes.avatar} />
                         </Grid>
                         <Typography className={this.props.classes.typography} align="center" paragraph>
                             Our judging engine automatically grades your submissions based on various metrics.
                     </Typography>
                         <Grid container justify="center" alignItems="center">
-                            <Avatar alt="Planet" src="https://drive.google.com/uc?export=download&id=16Urxei-AJ6WPeXZJK6YIOclkduWf7I5c" className={this.props.classes.avatar} />
+                            <Avatar alt="Planet" src="https://revsearch-assets.s3.amazonaws.com/images/planet1.png" className={this.props.classes.avatar} />
                         </Grid>
                         <Typography className={this.props.classes.typography} align="center" paragraph>
                             Track your progress through the Cosmos gamified dashboard and redeem real-life prizes like stickers and a t-shirt for your accomplishments.
