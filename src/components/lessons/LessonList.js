@@ -16,4 +16,4 @@ const renderLessons = (lessons) => (
 );
 
 export default ({ lessons }) =>
-    lessons.length === 0 ? <div>No lessons!</div> : renderLessons(lessons);
+    lessons.length === 0 ? <h3>Loading...</h3> : renderLessons(lessons);
