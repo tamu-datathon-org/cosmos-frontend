@@ -214,14 +214,14 @@ class Signup extends Component {
                                 onChange={this.handleChange}
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        {/* <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox value="allowExtraEmails" color="primary" />
                                 }
                                 label="I want to receive inspiration, marketing promotions and updates via email."
                             />
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                     <LoaderButton
                         disabled={!this.validateForm()}
