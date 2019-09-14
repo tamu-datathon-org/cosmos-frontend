@@ -1,6 +1,6 @@
 import Grid from '@material-ui/core/Grid';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import Typography from '@material-ui/core/Typography';
+// import LinearProgress from '@material-ui/core/LinearProgress';
+// import Typography from '@material-ui/core/Typography';
 import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
 
@@ -91,7 +91,7 @@ export default class extends Component {
                         {percent}%
                     </Typography> */}
                     <Progress
-                        percent={percent}
+                        percent={isNaN(percent) ? '...' : percent}
                     />
                 </Grid>
                 <LessonList lessons={lessons} />
