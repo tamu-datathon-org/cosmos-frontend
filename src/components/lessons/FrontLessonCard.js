@@ -62,7 +62,7 @@ const pctComplete = (lesson) =>
     sum(lesson.challenges.map((c) => c.challenge.points))) *
   100;
 
-const FrontLessonCard = ({ linearVariant, lesson, handleClick, classes }) => {
+const FrontLessonCard = ({ lesson, handleClick, classes }) => {
   const chipLabelText = `${Math.round(pctComplete(lesson))}% complete`;
 
   return (
