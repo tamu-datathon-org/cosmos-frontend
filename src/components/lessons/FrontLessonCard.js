@@ -10,7 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import LinearProgress from '@material-ui/core/LinearProgress';
+import Divider from '@material-ui/core/Divider';
 import React from 'react';
 
 // Card alignment ex - https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/page-layout-examples/album
@@ -63,9 +63,7 @@ const pctComplete = (lesson) =>
   100;
 
 const FrontLessonCard = ({ linearVariant, lesson, handleClick, classes }) => {
-  const PCT_COMPLETE = pctComplete(lesson);
-  const PCT_COMPLETE_INT = Math.round(PCT_COMPLETE);
-  const chipLabelText = `${PCT_COMPLETE_INT}% complete`;
+  const chipLabelText = `${Math.round(pctComplete(lesson))}% complete`;
 
   return (
     <Card className={classes.card}>
@@ -88,8 +86,7 @@ const FrontLessonCard = ({ linearVariant, lesson, handleClick, classes }) => {
           {lesson.description}
         </Typography>
       </CardContent>
-      <LinearProgress variant={linearVariant} color="secondary" value={PCT_COMPLETE} />
-      {/* <Divider variant="middle" /> */}
+      <Divider variant="middle" />
       <CardActions className={classes.cardActions}>
         {lesson.link && (
           <Button color="secondary" href={lesson.link} target="_blank">
