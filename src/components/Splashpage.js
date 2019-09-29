@@ -63,11 +63,6 @@ class Splashpage extends Component {
                                 <div className={this.props.classes.heroButtons}>
                                     <Grid container spacing={2} justify="center">
                                         <Grid item>
-                                            <Button variant="contained" color="primary" tag={Link} to="/signup" component={RouterLink}>
-                                                Sign Up
-                                        </Button>
-                                        </Grid>
-                                        <Grid item>
                                             <Button variant="outlined" color="primary" tag={Link} to="/login" component={RouterLink}>
                                                 Sign In
                                             </Button>
