@@ -24,9 +24,9 @@ export default class extends Component {
         email: null,
     };
 
-    componentDidMount() {
+    async componentDidMount() {
         Auth.currentAuthenticatedUser()
-            .then((res) => res.attributes.email)
+            .then((res) => (res.attributes === undefined || res.attributes === null) ? res.email : res.attributes.email)
             .then((email) => this.setState({ email }));
         // project_id hard coded for now
         const project_id = 'tamu_datathon';
@@ -55,7 +55,8 @@ export default class extends Component {
         }));
 
     joinLessonChallenges = ({ lessons, scoredChallenges, ...rest }) => ({
-        lessons: lessons.map((lesson) => ({
+        lessons: lessons.filter(lesson => lesson.openTimestamp <= Date.now())  // Only show lessons that are open now
+            .map((lesson) => ({
             challenges: scoredChallenges.filter((chal) => chal.lessonId === lesson.lessonId),
             ...lesson,
         })),
