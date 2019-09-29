@@ -15,7 +15,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { Link as RouterLink } from 'react-router-dom';
 
-
 const styles = (theme) => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -35,7 +34,6 @@ const styles = (theme) => ({
         margin: theme.spacing(3, 0, 2),
     },
 });
-
 
 class Login extends Component {
     constructor(props) {
@@ -67,7 +65,6 @@ class Login extends Component {
             await Auth.signIn(this.state.email, this.state.password);
             this.props.userHasAuthenticated(true);
         } catch (e) {
-            alert(e.message);
             this.setState({ isLoading: false });
         }
     };

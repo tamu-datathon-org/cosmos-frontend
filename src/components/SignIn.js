@@ -14,38 +14,12 @@ import Link from '@material-ui/core/Link';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { Link as RouterLink } from 'react-router-dom';
-import config from '../config';
-import FacebookButton from './auth/FacebookButton';
-import { withFederated, Authenticator } from 'aws-amplify-react';
-import GoogleButton from 'react-google-button';
-import { FacebookLoginButton } from "react-social-login-buttons";
+import { Greetings, Authenticator } from 'aws-amplify-react';
 
 const federatedConfig = {
     google_client_id: '605413637977-jr6t4m4mnti1smifgpedr4i471sc7vum.apps.googleusercontent.com',
     facebook_app_id: '494271277792385'
 }
-
-const buttonStyle = {
-    width: '300px',
-    fontSize: '20px',
-    'text-align': 'center'
-}
-
-const socialSignInButtons = (props) => (
-    <div>
-        <GoogleButton
-            style={buttonStyle}
-            onClick={props.googleSignIn}
-        />
-        <FacebookLoginButton
-            style={buttonStyle}
-            onClick={props.facebookSignIn}
-        />
-    </div>
-)
-
-const SocialButtons = withFederated(socialSignInButtons);
-
 
 const styles = (theme) => ({
     paper: {
@@ -54,17 +28,6 @@ const styles = (theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
-    signInSection: {
-        sectionBody: {
-            display: 'none'
-        },
-        sectionFooter: {
-            display: 'none'
-        },
-        strike: {
-            display: 'none'
-        }
-    }
 });
 
 class CosmosSignIn extends Component {
@@ -87,15 +50,34 @@ class CosmosSignIn extends Component {
         } catch (e) { }
     }
 
+    async cosmosUserCheckOrCreate() {
+        const user = await Auth.currentAuthenticatedUser();
+        try {
+            // Check if user exists in cosmos
+            await API.get('cosmos', `/users/?email=${user.email}`);
+        } catch (e) {
+            // User does not exist in cosmos, create it
+            console.log(e.response.status)
+            if (e.response.status === 404) {
+                const firstName = user.name.split(" ")[0]
+                const lastName = user.name.split(" ")[1]
+                await API.post('cosmos', `/users`, {
+                    body: {
+                        email: user.email,
+                        firstName: firstName,
+                        lastName: lastName
+                    }
+                });
+            }
+        }
+    }
+
     async handleAuthStateChange(state) {
         if (state === 'signedIn') {
-            const user = await Auth.currentAuthenticatedUser();
-            console.log(user);
             try {
-                const userExistsCheck = await API.get('cosmos', `/users/?email=${user.email}`);
-            } catch (e) {
-                console.log(e.response.status);
-            }
+                await this.cosmosUserCheckOrCreate();
+                this.props.userHasAuthenticated(true);
+            } catch (e) {}
         }
     }
 
@@ -103,11 +85,11 @@ class CosmosSignIn extends Component {
         return (
             <Container component="main" maxWidth="xs">
                 <div className={this.props.classes.paper}>
-                    {//<SocialButtons federated={federatedConfig} onStateChange={(authState) => this.handleAuthStateChange(authState)}/>
-                    }
                     <Authenticator
+                        hide={[Greetings]}
                         federated={federatedConfig}
-                        theme={{
+                        onStateChange={(authState) => this.handleAuthStateChange(authState)}
+                        theme={{ // Don't display normal sign in
                             sectionBody: {
                                 display: 'none'
                             },

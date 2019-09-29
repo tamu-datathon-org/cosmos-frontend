@@ -63,7 +63,6 @@ class NavBar extends Component {
                         ) : (
                                 <Tabs {...tabsProps}>
                                     <Tab label="Sign In" component={Link} to="/login" />
-                                    <Tab label="Sign Up" component={Link} to="/signup" />
                                 </Tabs>
                             )}
                     </Toolbar>
