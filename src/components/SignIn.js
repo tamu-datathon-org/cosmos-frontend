@@ -14,12 +14,23 @@ import Link from '@material-ui/core/Link';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { Link as RouterLink } from 'react-router-dom';
-import { Greetings, Authenticator } from 'aws-amplify-react';
+import { Greetings, Authenticator, withFederated } from 'aws-amplify-react';
+import GoogleSignInButton from './auth/GoogleSignInButton';
+import FacebookSignInButton from './auth/FacebookSignInButton';
 
 const federatedConfig = {
     google_client_id: '605413637977-jr6t4m4mnti1smifgpedr4i471sc7vum.apps.googleusercontent.com',
     facebook_app_id: '494271277792385'
 }
+
+const socialButtons = (props) => (
+    <div>
+        <GoogleSignInButton onClick={props.googleSignIn} />
+        <FacebookSignInButton onClick={props.facebookSignIn} />
+    </div>
+);
+
+const SocialButtons = withFederated(socialButtons);
 
 const styles = (theme) => ({
     paper: {
@@ -28,6 +39,13 @@ const styles = (theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
+    avatar: {
+        margin: theme.spacing(2),
+        backgroundColor: theme.palette.secondary.main,
+    },
+    buttonsDiv: {
+        margin: theme.spacing(2),
+    }
 });
 
 class CosmosSignIn extends Component {
@@ -77,30 +95,24 @@ class CosmosSignIn extends Component {
             try {
                 await this.cosmosUserCheckOrCreate();
                 this.props.userHasAuthenticated(true);
-            } catch (e) {}
+            } catch (e) { }
         }
     }
 
     render() {
         return (
             <Container component="main" maxWidth="xs">
+
                 <div className={this.props.classes.paper}>
-                    <Authenticator
-                        hide={[Greetings]}
-                        federated={federatedConfig}
-                        onStateChange={(authState) => this.handleAuthStateChange(authState)}
-                        theme={{ // Don't display normal sign in
-                            sectionBody: {
-                                display: 'none'
-                            },
-                            sectionFooter: {
-                                display: 'none'
-                            },
-                            strike: {
-                                display: 'none'
-                            }
-                        }}
-                    />
+                    <Avatar className={this.props.classes.avatar}>
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Sign In / Sign Up
+                    </Typography>
+                    <div className={this.props.classes.buttonsDiv}>
+                        <SocialButtons federated={federatedConfig} onStateChange={(authState) => this.handleAuthStateChange(authState)} />
+                    </div>
                 </div>
                 <style>
                     {'form: {display: none}'}

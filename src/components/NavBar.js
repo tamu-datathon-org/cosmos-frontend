@@ -8,9 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-
-const AVATAR_SRC =
-    'http://cdn.osxdaily.com/wp-content/uploads/2014/03/cosmos-space-wallpaper-6.jpg';
+import CosmosWallpaper from '../assets/img/cosmos_wallpaper.jpg';
 
 class NavBar extends Component {
     constructor(props) {
@@ -54,7 +52,7 @@ class NavBar extends Component {
             <div>
                 <AppBar style={{ marginBottom: '20px' }} position="static">
                     <Toolbar variant="dense">
-                        <Avatar src={AVATAR_SRC} style={{ marginRight: '20px' }} />
+                        <Avatar src={CosmosWallpaper} style={{ marginRight: '20px' }} />
                         <Typography variant="h5">Cosmos</Typography>
                         {this.props.isAuthenticated ? (
                             <Tabs {...tabsProps}>
@@ -62,7 +60,7 @@ class NavBar extends Component {
                             </Tabs>
                         ) : (
                                 <Tabs {...tabsProps}>
-                                    <Tab label="Sign In" component={Link} to="/login" />
+                                    <Tab label="Sign In / Sign Up" component={Link} to="/login" />
                                 </Tabs>
                             )}
                     </Toolbar>

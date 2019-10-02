@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
 import { Link as RouterLink } from 'react-router-dom';
+import separator_planet from '../assets/img/separator_planet.png';
 
 const styles = (theme) => ({
     avatar: {
@@ -54,17 +55,17 @@ class Splashpage extends Component {
                         {/* Hero unit */}
                         <div className={this.props.classes.heroContent}>
                             <Container maxWidth="md">
-                                <Typography className={this.props.classes.typography} component="h1" variant="h1" align="center" color="textPrimary" gutterBottom>
+                                <Typography className={this.props.classes.typography} component="h2" variant="h2" align="center" color="textPrimary" gutterBottom>
                                     Cosmos
-                            </Typography>
-                                <Typography className={this.props.classes.typography} variant="h3" align="center" color="textSecondary" paragraph>
+                                </Typography>
+                                <Typography className={this.props.classes.typography} variant="h4" align="center" color="textSecondary" paragraph>
                                     Fuel Your Learning Voyage
-                            </Typography>
+                                </Typography>
                                 <div className={this.props.classes.heroButtons}>
                                     <Grid container spacing={2} justify="center">
                                         <Grid item>
                                             <Button variant="outlined" color="primary" tag={Link} to="/login" component={RouterLink}>
-                                                Sign In
+                                                Sign In / Sign Up
                                             </Button>
                                         </Grid>
                                     </Grid>
@@ -79,19 +80,19 @@ class Splashpage extends Component {
                             Cosmos is for helping you deeply engage in your data science learning journey through gamification.
                             </Typography>
                         <Grid container justify="center" alignItems="center">
-                            <Avatar alt="Planet" src="https://revsearch-assets.s3.amazonaws.com/images/planet1.png" className={this.props.classes.avatar} />
+                            <Avatar alt="Planet" src={separator_planet} className={this.props.classes.avatar} />
                         </Grid>
                         <Typography className={this.props.classes.typography} align="center" paragraph>
                             Attempt challenges in whatever coding language you want and submit your answers to Cosmos.
                     </Typography>
                         <Grid container justify="center" alignItems="center">
-                            <Avatar alt="Planet" src="https://revsearch-assets.s3.amazonaws.com/images/planet1.png" className={this.props.classes.avatar} />
+                            <Avatar alt="Planet" src={separator_planet} className={this.props.classes.avatar} />
                         </Grid>
                         <Typography className={this.props.classes.typography} align="center" paragraph>
                             Our judging engine automatically grades your submissions based on various metrics.
                     </Typography>
                         <Grid container justify="center" alignItems="center">
-                            <Avatar alt="Planet" src="https://revsearch-assets.s3.amazonaws.com/images/planet1.png" className={this.props.classes.avatar} />
+                            <Avatar alt="Planet" src={separator_planet} className={this.props.classes.avatar} />
                         </Grid>
                         <Typography className={this.props.classes.typography} align="center" paragraph>
                             Track your progress through the Cosmos gamified dashboard and redeem real-life prizes like stickers and a t-shirt for your accomplishments.
