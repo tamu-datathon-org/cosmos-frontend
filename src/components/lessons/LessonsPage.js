@@ -1,15 +1,19 @@
 import Grid from '@material-ui/core/Grid';
 // import LinearProgress from '@material-ui/core/LinearProgress';
-// import Typography from '@material-ui/core/Typography';
+import Typography from '@material-ui/core/Typography';
 import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
-
+import Chip from '@material-ui/core/Chip';
+import ReactTooltip from 'react-tooltip';
 import React, { Component } from 'react';
 import LessonList from './LessonList';
 import { Container } from '@material-ui/core';
 import { API, Auth } from 'aws-amplify';
 
 const sum = (arr) => arr.reduce((a, b) => a + b, 0);
+
+const INCOMPLETE_PERCENT_TOOLTIP = 'Complete all the lessons in the Datathon to win a dope T-Shirt!';
+const COMPLETE_PERCENT_TOOLTIP = "<span>You've completed all the lessons!🎉<hr/>Head up to a volunteer and ask for your prize! (Spoiler: It's a T-Shirt)</span>";
 
 const pctComplete = (lessons) =>
     (sum(lessons.map((l) => sum(l.challenges.map((c) => c.points)))) /
@@ -22,12 +26,15 @@ export default class extends Component {
         error: '',
         lessons: [],
         email: null,
+        name: null,
     };
 
     async componentDidMount() {
         Auth.currentAuthenticatedUser()
-            .then((res) => (res.attributes === undefined || res.attributes === null) ? res.email : res.attributes.email)
-            .then((email) => this.setState({ email }));
+            .then((res) => ({
+                email: ((res.attributes === undefined || res.attributes === null) ? res.email : res.attributes.email),
+                name: res.name
+            })).then(({email, name}) => this.setState({ email, name }));
         // project_id hard coded for now
         const project_id = 'tamu_datathon';
         this.getProject(project_id);
@@ -79,26 +86,37 @@ export default class extends Component {
         </div>
     );
 
-    renderLessons = (lessons, percent) => (
-        <div>
-            <Container>
-                <Grid style={{ paddingBottom: 24 }} item>
-                    {/* <LinearProgress
-                        variant="determinate"
-                        color="secondary"
-                        value={pctComplete(lessons)}
+    renderLessons = (lessons, percent) => {
+        const percentLabel = isNaN(percent) ? '...' : percent;
+        const percentCompleteTooltip = (percentLabel === 100) ? COMPLETE_PERCENT_TOOLTIP : INCOMPLETE_PERCENT_TOOLTIP;
+        return (
+            <div>
+                <Container>
+                    <Typography align='center'>
+                        {`${this.state.name} (${this.state.email})`}
+                    </Typography>
+                    <ReactTooltip effect='solid' type='dark' html/>
+                    <Chip 
+                        size="large" color="secondary" 
+                        label={`Learner Track: ${percentLabel}% complete`} 
+                        style={{float: 'right'}}
+                        data-tip={percentCompleteTooltip}
                     />
-                    <Typography>
-                        {percent}%
-                    </Typography> */}
-                    <Progress
-                        percent={isNaN(percent) ? '...' : percent}
-                    />
-                </Grid>
-                <LessonList lessons={lessons} />
-            </Container>
-        </div>
-    );
+                    <Grid style={{ paddingBottom: 24 }} item>
+                        {/* <LinearProgress
+                            variant="determinate"
+                            color="secondary"
+                            value={pctComplete(lessons)}
+                        />
+                        <Progress
+                            percent={isNaN(percent) ? '...' : percent}
+                        />*/}
+                    </Grid>
+                    <LessonList lessons={lessons} />
+                </Container>
+            </div>
+        );
+    }
 
     render() {
         const { projectLoading, error, lessons, email } = this.state;

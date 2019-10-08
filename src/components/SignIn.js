@@ -1,22 +1,19 @@
 //Based on Template - https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/page-layout-examples/sign-in
 
 import React, { Component } from 'react';
-import LoadingButton from '../elements/LoadingButton';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
 import { Auth, API } from 'aws-amplify';
 import Avatar from '@material-ui/core/Avatar';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { Link as RouterLink } from 'react-router-dom';
-import { Greetings, Authenticator, withFederated } from 'aws-amplify-react';
+import { withFederated } from 'aws-amplify-react';
+import Snackbar from '@material-ui/core/Snackbar';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
 import GoogleSignInButton from './auth/GoogleSignInButton';
 import FacebookSignInButton from './auth/FacebookSignInButton';
+import { ToastContainer, toast } from 'react-toastify';
 
 const federatedConfig = {
     google_client_id: '605413637977-jr6t4m4mnti1smifgpedr4i471sc7vum.apps.googleusercontent.com',
@@ -65,7 +62,11 @@ class CosmosSignIn extends Component {
         try {
             await Auth.currentAuthenticatedUser();
             this.props.userHasAuthenticated(true);
-        } catch (e) { }
+        } catch (e) { 
+            toast.info(<span><b>Issues signing in? 🧐</b><hr/>Make sure to allow popups!</span>, {
+                hideProgressBar: true
+            });
+        }
     }
 
     async cosmosUserCheckOrCreate() {
@@ -102,7 +103,6 @@ class CosmosSignIn extends Component {
     render() {
         return (
             <Container component="main" maxWidth="xs">
-
                 <div className={this.props.classes.paper}>
                     <Avatar className={this.props.classes.avatar}>
                         <LockOutlinedIcon />
