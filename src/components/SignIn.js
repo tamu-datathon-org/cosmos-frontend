@@ -9,8 +9,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { Link as RouterLink } from 'react-router-dom';
 import { withFederated } from 'aws-amplify-react';
-import Snackbar from '@material-ui/core/Snackbar';
-import SnackbarContent from '@material-ui/core/SnackbarContent';
 import GoogleSignInButton from './auth/GoogleSignInButton';
 import FacebookSignInButton from './auth/FacebookSignInButton';
 import { ToastContainer, toast } from 'react-toastify';
@@ -94,6 +92,9 @@ class CosmosSignIn extends Component {
     async handleAuthStateChange(state) {
         if (state === 'signedIn') {
             try {
+                toast.success('Signing you in!', {
+                    hideProgressBar: true
+                });
                 await this.cosmosUserCheckOrCreate();
                 this.props.userHasAuthenticated(true);
             } catch (e) { }

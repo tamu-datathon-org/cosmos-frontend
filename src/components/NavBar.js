@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import CosmosWallpaper from '../assets/img/cosmos_wallpaper.jpg';
+import CosmosWallpaper from '../assets/img/separator_planet.png';
 
 class NavBar extends Component {
     constructor(props) {

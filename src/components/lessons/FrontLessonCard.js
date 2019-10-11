@@ -13,7 +13,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import React from 'react';
 
-const INCOMPLETE_PERCENT_TOOLTIP = 'Complete all the challenges in this lesson to win the sticker shown above!';
+const INCOMPLETE_PERCENT_TOOLTIP = '<span>Complete all the challenges in this lesson to win the sticker shown above!<hr/>P.S: It\'s grayed out right now (try finishing the lesson), but it looks awesome, we promise!</span>';
 const COMPLETE_PERCENT_TOOLTIP = "<span>You've completed this lesson!🎉<hr/>Head up to a volunteer and ask for your prize!</span>";
 
 // Card alignment ex - https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/page-layout-examples/album
@@ -69,7 +69,6 @@ const FrontLessonCard = ({ lesson, handleClick, classes }) => {
   const challengeCompletionPercent = Math.round(pctComplete(lesson))
   const chipLabelText = `${challengeCompletionPercent}% complete`;
   const completionChipTooltip = (challengeCompletionPercent === 100) ? COMPLETE_PERCENT_TOOLTIP : INCOMPLETE_PERCENT_TOOLTIP;
-  console.log(completionChipTooltip);
   return (
     <Card className={classes.card}>
       <CardMedia
@@ -77,7 +76,7 @@ const FrontLessonCard = ({ lesson, handleClick, classes }) => {
         image="https://drive.google.com/uc?export=download&id=1GERwGehJmlhJkS-cEsV6tn715QuoVtRF"
       >
         <CardMedia
-          className={classes.image}//isCompleted(lesson) ? classes.image : classes.imageGrayed}
+          className={isCompleted(lesson) ? classes.image : classes.imageGrayed}
           component="img"
           image={lesson.image}
           title={lesson.name}
