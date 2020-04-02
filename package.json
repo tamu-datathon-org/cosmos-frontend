@@ -8,13 +8,14 @@
         "aws-amplify": "^1.1.30",
         "aws-amplify-react": "^2.4.4",
         "babel-preset-react-app": "^9.0.1",
-        "eslint": "^5.16.0",
+        "bootstrap": "^4.4.1",
+        "node-sass": "^4.13.1",
         "react": "^16.13.0",
         "react-card-flip": "^0.7.2",
         "react-dom": "^16.13.0",
         "react-router": "^4.3.1",
         "react-router-dom": "^4.3.1",
-        "react-scripts": "3.0.1",
+        "react-scripts": "^3.4.1",
         "react-sweet-progress": "^1.1.2",
         "react-toastify": "^5.4.0",
         "react-tooltip": "^3.11.1",
@@ -28,9 +29,6 @@
         "predeploy": "npm run build",
         "deploy": "aws s3 sync build/ s3://josiahcoad-cosmos --delete",
         "postdeploy": "aws cloudfront create-invalidation --distribution-id E2REFQU3CB78GL --paths '/*'"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
     },
     "browserslist": {
         "production": [
