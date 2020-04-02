@@ -2,12 +2,24 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import {
+    Navbar as BootstrapNav,
+    Nav,
+    NavbarBrand,
+    NavbarToggler,
+    NavbarText,
+    NavItem,
+    NavLink,
+    Collapse
+} from 'reactstrap';
+
+
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
+// import Typography from '@material-ui/core/Typography';
+// import Avatar from '@material-ui/core/Avatar';
+// import Tabs from '@material-ui/core/Tabs';
+// import Tab from '@material-ui/core/Tab';
 import CosmosWallpaper from '../assets/img/separator_planet.png';
 
 class NavBar extends Component {
@@ -48,9 +60,39 @@ class NavBar extends Component {
             value: this.state.value,
             onChange: this.handleChange,
         };
+
+        const avatarProps = {
+            avatarImage: CosmosWallpaper,
+            altText: 'Cosmos by TAMU Datathon'
+        };
+
+        const isOpen = false;
+
         return (
             <div>
-                <AppBar style={{ marginBottom: '20px' }} position="static">
+                <BootstrapNav expand="md">
+                    <NavbarBrand href="/">
+                        <Avatar {...avatarProps} />
+                        Cosmos
+                        {/* <Avatar src={CosmosWallpaper} style={} /> */}
+                    </NavbarBrand>
+
+                    <NavbarToggler onClick={false} />
+                    <Collapse isOpen={isOpen} navbar>
+                        <Nav className="mr-auto" navbar></Nav>
+                        {/* the nav component pushes this to the right */}
+                        <NavbarText>
+                            {this.props.isAuthenticated ? (
+                                <a onClick={this.handleLogout}>Logout</a>
+                            ) : (
+                                <NavLink tag={Link} to="/login">Sign In / Sign Up</NavLink>
+                            )}
+                        </NavbarText>
+                    </Collapse>
+                    
+                </BootstrapNav>
+                
+                {/* <AppBar style={{ marginBottom: '20px' }} position="static">
                     <Toolbar variant="dense">
                         <Avatar src={CosmosWallpaper} style={{ marginRight: '20px' }} />
                         <Typography variant="h5">Cosmos</Typography>
@@ -64,10 +106,24 @@ class NavBar extends Component {
                                 </Tabs>
                             )}
                     </Toolbar>
-                </AppBar>
+                </AppBar> */}
             </div>
         );
     };
+}
+
+// implement custom avatar component instead of MaterialUI
+function Avatar({ avatarImage, altText }) {
+    const style = {
+        marginRight: '20px',
+        verticalAlign: 'middle',
+        width: '50px',
+        height: '50px',
+        borderRadius: '50%'
+    };
+    return (
+        <img src={avatarImage} alt={altText} style={style} />
+    );
 }
 
 export default withRouter(NavBar);

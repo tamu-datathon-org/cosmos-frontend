@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import Routes from './components/Routes';
 import { Auth } from 'aws-amplify';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
+import './main.scss';
 
 class App extends Component {
     constructor(props) {
@@ -48,7 +49,7 @@ class App extends Component {
                 <div>
                     <NavBar {...childProps} />
                     <Routes childProps={childProps} />
-                    <ToastContainer/>
+                    {/* <ToastContainer/> */}
                 </div>
             )
         );

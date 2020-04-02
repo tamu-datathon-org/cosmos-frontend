@@ -1,0 +1,9 @@
+// import main theme
+@import './theme/navbar.scss';
+
+// TODO: only include certain components & not all
+//       reducing client load & increasing speed
+// https://getbootstrap.com/docs/4.0/getting-started/theming/
+
+// Import ALL of bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
